@@ -6,9 +6,7 @@ router.get("/", (req, res) => {
     res.render("homepage")
 })
 
-router.get("/wedding", (req, res) => {
-    res.render("wedding")
-})
+router.
 
 router.get("/login", (req, res)=> {
     res.render("login")
