@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Model {}
+class Registry extends Model {}
 
-User.init(
+Registry.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,16 +11,12 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    first_name: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
+    wedding_id: {
+      types: DataTypes.STRING,
       allowNull: false,
     }
   },
@@ -28,8 +24,8 @@ User.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'registry',
   }
 );
 
-module.exports = User;
+module.exports = Registry;
