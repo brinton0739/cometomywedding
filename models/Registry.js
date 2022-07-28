@@ -28,4 +28,4 @@ Registry.init(
   }
 );
 
-module.exports = Registry;
+// module.exports = Registry;
