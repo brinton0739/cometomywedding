@@ -24,6 +24,7 @@ router.post("/login", async (req, res) => {
           .json({ message: "Incorrect username or password. Please try again!" })
         return
       }
+      console.log(req.session.loggedIn)
       //save cookies for session after login
       req.session.save(() => {
         req.session.loggedIn = true
