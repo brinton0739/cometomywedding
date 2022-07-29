@@ -5,8 +5,8 @@ router.get("/", (req, res) => {
     res.render("dashboard")
 })
 
-router.get("/wedding", (req, res) => {
-    res.render("wedding")
+router.get("/create-wedding", (req, res) => {
+    res.render("createWedding")
 })
 
 module.exports=router;
