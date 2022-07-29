@@ -19,6 +19,14 @@ Event.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    time: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    dress_code: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
   },
   {
     sequelize,
