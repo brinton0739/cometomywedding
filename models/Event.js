@@ -14,10 +14,18 @@ Event.init(
     location_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'location',
+        key: 'id',
+      },
     },
     wedding_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'wedding',
+        key: 'id',
+      },
     },
     time: {
       type: DataTypes.DATE,
