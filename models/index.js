@@ -8,12 +8,12 @@ const Event = require('./Event');
 
 User.hasMany(Guest, {
     foreignKey: 'guest_id',
-    onDelete: 'CASCADE'
+    // onDelete: 'CASCADE'
 });
 
 Wedding.hasMany(Guest, {
     foreignKey: 'wedding_id',
-    onDelete: 'CASCADE'
+    // onDelete: 'CASCADE'
 });
 
 Wedding.hasOne(Registry, {
@@ -30,7 +30,7 @@ Guest.belongsTo(Wedding, {
 
 Location.hasMany(Event, {
     foreignKey: 'location_id',
-    onDelete: 'CASCADE'
+    // onDelete: 'CASCADE'
 });
 
 Event.hasOne(Location, {

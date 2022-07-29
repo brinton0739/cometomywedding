@@ -6,7 +6,7 @@ const locationData = [
     },
     {
         name: 'The Pie Pizzeria',
-        access: '7186 Union Park Ave, Midvale, UT 84047',
+        address: '7186 Union Park Ave, Midvale, UT 84047',
     }
 ]
 
