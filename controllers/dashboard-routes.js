@@ -9,4 +9,9 @@ router.get("/create-wedding", (req, res) => {
     res.render("createWedding")
 })
 
+router.get("/create-event", (req, res) => {
+    res.render("createEvent")
+})
+
+
 module.exports=router;
