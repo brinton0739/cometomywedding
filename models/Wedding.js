@@ -27,6 +27,7 @@ Wedding.init(
       type: DataTypes.STRING,
       allowNull: false,
     }
+  
   },
   {
     sequelize,
