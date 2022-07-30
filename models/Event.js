@@ -11,6 +11,10 @@ Event.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     location_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -28,7 +32,7 @@ Event.init(
       },
     },
     time: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     dress_code: {
