@@ -9,14 +9,14 @@ const createWeddingFormHandler = async (event) => {
     
   
     if (partner1 && partner2 && weddingName) {
-      const response = await fetch("/api/users", {
+      const response = await fetch("/api/createWedding-route", {
         method: "POST",
         body: JSON.stringify({ partner1, partner2, weddingName}),
         headers: { "Content-Type": "application/json" },
       })
   
       if (response.ok) {
-        document.location.replace("/")
+        document.location.replace("/dashboard/create-event")
       } else {
         alert("Failed to create wedding.")
       }
@@ -24,6 +24,6 @@ const createWeddingFormHandler = async (event) => {
   }
   
   document
-    .querySelector(".login-form")
+    .querySelector("#create-wedding")
     .addEventListener("submit", createWeddingFormHandler)
   
