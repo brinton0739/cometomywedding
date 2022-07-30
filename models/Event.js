@@ -32,6 +32,10 @@ Event.init(
         key: 'id',
       },
     },
+    date: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     time: {
       type: DataTypes.STRING,
       allowNull: false,
