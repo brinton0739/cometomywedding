@@ -18,6 +18,10 @@ Registry.init(
     wedding_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'wedding',
+        key: 'id',
+      },
     }
   },
   {

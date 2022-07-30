@@ -18,6 +18,14 @@ Wedding.init(
     code: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    partner1: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    partner2: {
+      type: DataTypes.STRING,
+      allowNull: false,
     }
   
   },
