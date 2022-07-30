@@ -9,7 +9,6 @@ router.post("/", async (req, res) => {
         time: req.body.time,
         venue: req.body.location,
         address: req.body.address,
-        location: req.body.location,
         dress_code: req.body.dress_code,
         wedding_id: req.session.wedding_id,
 
