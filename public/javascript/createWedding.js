@@ -1,19 +1,17 @@
 // handles user signing up for the first time
-const signupFormHandler = async (event) => {
+const createWeddingFormHandler = async (event) => {
     event.preventDefault()
     //select users input
-    const first_name = document.querySelector("#first-signup").value.trim()
-    const last_name = document.querySelector("#last-signup").value.trim()
+    const partner1 = document.querySelector("#partner1").value.trim()
+    const partner2 = document.querySelector("#partner2").value.trim()
 
-    const email = document.querySelector("#email-signup").value.trim()
-    const password = document.querySelector("#password-signup1").value.trim()
-    const password2 = document.querySelector("#password-signup2").value.trim()
-
+    const weddingName = document.querySelector("#wedding-name").value.trim()
+    
   
-    if (first_name && last_name && email && password) {
+    if (partner1 && partner2 && weddingName) {
       const response = await fetch("/api/users", {
         method: "POST",
-        body: JSON.stringify({ first_name, last_name, email, password }),
+        body: JSON.stringify({ partner1, partner2, weddingName}),
         headers: { "Content-Type": "application/json" },
       })
   
@@ -26,6 +24,6 @@ const signupFormHandler = async (event) => {
   }
   
   document
-    .querySelector(".signup-form")
-    .addEventListener("submit", signupFormHandler)
+    .querySelector(".login-form")
+    .addEventListener("submit", createWeddingFormHandler)
   
