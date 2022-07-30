@@ -1,14 +1,20 @@
 const sequelize = require('../config/connection');
-const uuid = require('uuid');
+const checkUuid = require('uuid');
 const Wedding = require('../models/Wedding')
 
-const id = uuid.v4().slice(0, 6);
-console.log(id);
 
-const test = async (await Wedding.findAll({
-    where: {
-        code: 'n4f0u1'
-    }
-}));
+const uuid = async () => {
+    const id = u.v4().slice(0, 6);
+    const wed = await Wedding.findAll({
+        where: {
+            code: 'n4f0u1'
+        }
+    });
+    const codes = wed.map(each => {
+        return each.code;
+    });
+    if(codes.includes(id)) uuid()
+    else return id;
+};
 
-console.log(test);
+module.exports = uuid;
