@@ -1,28 +1,71 @@
-
-<div class="container mt-5 bg-light border-primary p-5">
-    <h1> Create a Wedding Event </h1>
-    <form class="event-form">
-        <div class="form-group">
-            <label for="event-name">Enter Your Event Details: </label>
-            <input type="text" class="form-control mb-2" id="event-name" placeholder="rehersal dinner">
-            <input type="text" class="form-control" id="location-name" placeholder="event center">
-            <input type="text" class="form-control" id="location-address" placeholder="123 Street Orem, UT 84097">
-            <input type="text" class="form-control" id="location-venue" placeholder="The colosseum">
-            <input type="text" class="form-control" id="event-date" placeholder="August 23, 2022">
-            <input type="text" class="form-control" id="event-time" placeholder="6pm to 9pm">
-            <input type="text" class="form-control" id="dress-code" placeholder="How would you like your guests to dress?">
-
-        </div>
-
-       
-         <button type="submit" id="create-event" class="btn btn-primary login-form">save</button>
-        <a href="/dashboard/wedding/1"> next </a>
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+<form class="space-y-8 divide-y divide-gray-200">
+  <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
+<div class="pt-8 space-y-6 sm:pt-10 sm:space-y-5">
+    
+        <h3 class="text-lg leading-6 font-medium text-gray-900">Create Your Event</h3>
+        {{!-- <p class="mt-1 max-w-2xl text-sm text-gray-500">Use a permanent address where you can receive mail.</p> --}}
   
-       
-        {{!-- <button  href="/create-event"class="btn btn-primary login-form">next</button> --}}
+      <div class="space-y-6 sm:space-y-5">
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="event-name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Name your Event</label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input type="text" name="event-name" id="event-name" class="max-w-lg block w-full shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
+    </div>
+   
+      <div class="space-y-6 sm:space-y-5">
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="location-name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Name your location</label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input type="text" name="location-name" id="location-name" class="max-w-lg block w-full shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
+    </div> 
+     <div class="space-y-6 sm:space-y-5">
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="location-address" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Location address</label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input type="text" name="location-address" id="location-address" class="max-w-lg block w-full shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
+    </div> 
+        <div class="space-y-6 sm:space-y-5">
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="event-date" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Event Date</label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input type="text" name="location-address" id="location-address" class="max-w-lg block w-full shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
+    </div> 
+        <div class="space-y-6 sm:space-y-5">
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="event-time" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Event time</label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input type="text" name="event-time" id="event-time" class="max-w-lg block w-full shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
+    </div> 
+        <div class="space-y-6 sm:space-y-5">
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="dress-code" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Dress code</label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input type="text" name="dress-code" id="dress-code" class="max-w-lg block w-full shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
+    </div> 
+</div>
+    </div>
+ </form>
+ <span class="relative z-0 flex  justify-center shadow-sm rounded-md pt-5">
+<!-- This example requires Tailwind CSS v2.0+ -->
+<button type="button" id="create-event" class=" min-w-lg max-w-lg inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-teal-500 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400">Next</button>
+</span>
+   
+  
+    
 
-    </form>
 </div>
 
-</div>
-</div>
+
