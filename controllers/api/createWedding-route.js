@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
         req.session.partner1 = dbWeddingData.partner1,
         req.session.partner2= dbWeddingData.partner2,
         req.session.name= dbWeddingData.name
-        req.session.user_id = dbWeddingData.id,
+        req.session.wedding_id = dbWeddingData.id,
         res.status(200).json(dbWeddingData)
       })
     } catch (err) {
