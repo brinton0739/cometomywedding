@@ -5,11 +5,7 @@ const Wedding = require('../models/Wedding')
 
 const uuid = async () => {
     const id = u.v4().slice(0, 6);
-    const wed = await Wedding.findAll({
-        where: {
-            code: 'n4f0u1'
-        }
-    });
+    const wed = await Wedding.findAll();
     const codes = wed.map(each => {
         return each.code;
     });
