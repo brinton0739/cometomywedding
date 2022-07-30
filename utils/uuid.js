@@ -1,5 +1,4 @@
-const sequelize = require('../config/connection');
-const checkUuid = require('uuid');
+const u = require('uuid');
 const Wedding = require('../models/Wedding')
 
 
