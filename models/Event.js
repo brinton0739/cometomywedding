@@ -15,14 +15,15 @@ Event.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    location_id: {
-      type: DataTypes.INTEGER,
+    venue: {
+      type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: 'location',
-        key: 'id',
-      },
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  
     wedding_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -31,7 +32,15 @@ Event.init(
         key: 'id',
       },
     },
+    date: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     time: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    location: {
       type: DataTypes.STRING,
       allowNull: false,
     },
