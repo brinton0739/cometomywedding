@@ -27,5 +27,11 @@ router.get("/rsvp", (req, res) => {
     })
   })
   
+  router.get("/wedding-album", (req, res) => {
+    res.render("weddingAlbum", {
+      loggedIn: req.session.loggedIn,
+    })
+  })
+  
 
 module.exports = router
