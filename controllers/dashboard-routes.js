@@ -21,6 +21,11 @@ router.get("/create-event", (req, res) => {
 })
 
 
-
+router.get("/rsvp", (req, res) => {
+    res.render("rsvp", {
+      loggedIn: req.session.loggedIn,
+    })
+  })
+  
 
 module.exports = router
