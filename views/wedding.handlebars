@@ -1,12 +1,15 @@
 <div class="d-block">
-<h1>John and Sally's Wedding</h1>
+<h1>{{{wedding.partner1}}} and {{wedding.partner2}}'s Wedding</h1>
+
+{{#each registry of wedding.registry}}
+>registry
+{{/each}}
 
 <button>edit with permissions</button>
 <button>delete with permissions</button>
 
 <h2> Wedding Event Details</h2>
 <p>here</p>
-
 <a href="/wedding/1/guestbook"><button>sign the guestbook</button></a>
 <a href="/wedding/1/album"><button>add to the wedding album</button></a>
 <a href="/wedding/1/registry"><button>see the gift registry</button></a>
