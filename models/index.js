@@ -28,14 +28,14 @@ Guest.belongsTo(Wedding, {
     foreignKey: 'wedding_id'
 });
 
-Location.hasMany(Event, {
-    foreignKey: 'location_id',
-    onDelete: 'CASCADE'
-});
+// Location.hasMany(Event, {
+//     foreignKey: 'location_id',
+//     onDelete: 'CASCADE'
+// });
 
-Event.hasOne(Location, {
-    foreignKey: 'location_id'
-});
+// Event.hasOne(Location, {
+//     foreignKey: 'location_id'
+// });
 
 Registry.belongsTo(Wedding, {
     foreignKey: 'wedding_id'
