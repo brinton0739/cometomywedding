@@ -1,3 +1,65 @@
-<div>
-    <h1>homepage</h1>
+
+<div class="bg-white lg:pt-4">
+  <div class="relative pb-32 bg-gray-800">
+    <div class="absolute inset-0">
+      <img class="w-full h-full object-cover object-top" src="/images/hero image.jpeg" alt="">
+      <div class="absolute inset-0 bg-gray-300 mix-blend-multiply" aria-hidden="true"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-extrabold tracking-tight drop-shadow text-teal-300 md:text-5xl lg:text-6xl">Keep your guests in the loop.</h1>
+      <p class="mt-6 max-w-3xl text-xl text-white drop-shadow"> Your guests can RSVP to your wedding, see your registry, sign the guest book and even add to your wedding album!</p>
+    </div>
+  </div>
+
+  <!-- Overlapping cards -->
+  <section class="-mt-32 max-w-7xl mx-auto relative z-10 pb-32 px-4 sm:px-6 lg:px-8" aria-labelledby="contact-heading">
+    <h2 class="sr-only" id="contact-heading">Contact us</h2>
+    <div class="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8">
+      <div class="flex flex-col bg-white rounded-2xl shadow-xl">
+        <div class="flex-1 relative pt-16 px-6 pb-8 md:px-8">
+          <div class="absolute top-0 p-5 inline-block bg-teal-500 rounded-xl shadow-lg transform -translate-y-1/2">
+            <!-- Heroicon name: outline/phone -->
+                <svg class="h-6 w-6 fill-white"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z"/></svg>              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-medium text-gray-900">CREATE A WEDDING</h3>
+          <p class="mt-4 text-base text-gray-500"> Planning a wedding? add your wedding to get a code you can use to invite people to your wedding page.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
+          <a href="/signup" class="text-base font-medium text-teal-600 hover:text-yellow-800">Start now<span aria-hidden="true"> &rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="flex flex-col bg-white rounded-2xl shadow-xl">
+        <div class="flex-1 relative pt-16 px-6 pb-8 md:px-8">
+          <div class="absolute top-0 p-5 inline-block bg-teal-500 rounded-xl shadow-lg transform -translate-y-1/2 ">
+            <!-- Heroicon name: outline/support -->
+            <svg class="h-6 w-6 fill-white"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M351.2 160.7c14 22.12 23.75 46.62 28.63 72.24c51.63 21.1 79 78.74 64.13 132.7c-14.88 54.12-67.5 88.74-123 81.24C265.4 439.5 224 392.1 224 335.1c0-42.25 23.75-78.62 58.25-97.49C285.6 249.1 288 260.2 288 271.1c0 28.5-11 55.1-30.75 76.62c3.625 22.5 16.62 42.51 35.75 54.76C330.5 370.1 352 322.1 352 271.1c0-81.62-55.59-150.2-130.1-170.1l34.96-69.92L223.1 0h-95.1l-32 31.1l34.96 69.92C55.59 121.8 0 190.4 0 271.1c0 97.24 78.75 175.1 176 175.1c7.625 0 15.29-.7385 22.91-1.863c46.75 58.25 125.2 80.73 195.6 55.86C465 477.2 512 410.6 512 335.1C512 243.1 441.2 168.5 351.2 160.7zM64 271.1c.125-61.87 50.13-111.9 112-111.1c26.88 0 51.25 9.874 70.5 25.75C195 216.2 160 271.6 160 335.1c0 15.87 2.25 31.73 6.5 46.98C109.2 378.1 64 330.5 64 271.1z"/></svg>            {{!-- <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg> --}}
+          </div>
+          <h3 class="text-xl font-medium text-gray-900">VIEW WEDDINGS</h3>
+          <p class="mt-4 text-base text-gray-500">View a wedding you already created, or view weddings you have been invited to</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
+          <a href="#" class="text-base font-medium text-teal-600 hover:text-yellow-800">Here<span aria-hidden="true"> &rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="flex flex-col bg-white rounded-2xl shadow-xl">
+        <div class="flex-1 relative pt-16 px-6 pb-8 md:px-8">
+          <div class="absolute top-0 p-5 inline-block bg-teal-500 rounded-xl shadow-lg transform -translate-y-1/2">
+            <!-- Heroicon name: outline/newspaper -->
+        <svg class="h-6 w-6 fill-white"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM235.3 444.7L328 352C350.1 329.9 350.1 294.1 328 272C305.9 249.9 270.1 249.9 248 272L224 296L200 272C177.9 249.9 142.1 249.9 120 272C97.91 294.1 97.91 329.9 120 352L212.7 444.7C218.9 450.9 229.1 450.9 235.3 444.7H235.3z"/></svg>              <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-medium text-gray-900">RSVP TO A WEDDING</h3>
+          <p class="mt-4 text-base text-gray-500"> Enter your special code to RSVP to their special day</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
+          <a href="#" class="text-base font-medium text-teal-600 hover:text-yellow-800">Contact us<span aria-hidden="true"> &rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
