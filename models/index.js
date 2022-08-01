@@ -1,13 +1,12 @@
 const User = require('./User');
-const Guest = require('./Event');
-const Location = require('./Location');
+const Guest = require('./Guest');
 const Wedding = require('./Wedding');
 const Registry = require('./Registry');
 const Event = require('./Event');
 
 
 User.hasMany(Guest, {
-    foreignKey: 'guest_id',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
@@ -28,17 +27,8 @@ Guest.belongsTo(Wedding, {
     foreignKey: 'wedding_id'
 });
 
-// Location.hasMany(Event, {
-//     foreignKey: 'location_id',
-//     onDelete: 'CASCADE'
-// });
-
-// Event.hasOne(Location, {
-//     foreignKey: 'location_id'
-// });
-
 Registry.belongsTo(Wedding, {
     foreignKey: 'wedding_id'
 });
 
-module.exports = { User, Guest, Location, Wedding, Registry, Event };
+module.exports = { User, Guest, Wedding, Registry, Event };

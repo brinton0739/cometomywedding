@@ -3,8 +3,9 @@ const router = require("express").Router()
 const getDetails = require('../utils/getDetails');
 const auth = require('../utils/auth');
 
-router.get("/:wedding_id", auth, async (req, res) => {
-  const { guest, wedding, registry, events } = await getDetails(req.params.wedding_id, req.session.user_id);
+router.get("/:wedding_id", async (req, res) => {
+  const { guest, wedding, registry, events } = await getDetails(1, 1);
+  console.log(events)
   res.render("wedding", {
     loggedIn: req.session.loggedIn,
     guest, wedding, registry, events

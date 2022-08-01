@@ -1,7 +1,7 @@
 const Registry = require('../models/Registry')
 const registryData = [
     {
-        description: "Some registry link",
+        description: "Some registry link,another one,again",
         wedding_id: 1,
     },
     {

@@ -1,0 +1,10 @@
+{{#if guest.access}}
+<h2>{{this}}</h2>
+{{/if}}
+{{#unless guest.access}}
+<input type="text" id="fname" name="fname" value="{{this}}" readonly><br>
+<button>Delete</button><button>Edit</button><button>Save</button><br>
+clicking the delete button should open a dialog to confirm delete, and if confirmed should delete from page and send an UPDATE request to update the resource on the server
+clicking the edit button should unlock the text field, hide itself and show the save button
+clicking the save button should send an UPDATE request to update the resource,hide itself and show edit button<br>
+{{/unless}}

@@ -1,0 +1,20 @@
+{{#if guest.access}}
+<h2>{{this.name}}</h2>
+<h2>{{this.venue}}</h2>
+<h2>{{this.address}}</h2>
+<h2>{{this.dress_code}}</h2>
+<h2>{{this.date}}</h2>
+<h2>{{this.time}}</h2>
+{{/if}}
+{{#unless guest.access}}
+<input type="text" id="fname" name="fname" value="{{this.name}}" readonly><br>
+<input type="text" id="fname" name="fname" value="{{this.venue}}" readonly><br>
+<input type="text" id="fname" name="fname" value="{{this.address}}" readonly><br>
+<input type="text" id="fname" name="fname" value="{{this.dress_code}}" readonly><br>
+<input type="text" id="fname" name="fname" value="{{this.date}}" readonly><br>
+<input type="text" id="fname" name="fname" value="{{this.time}}" readonly><br>
+<button>Delete</button><button>Edit</button><button>Save</button><br>
+clicking the delete button should open a dialog to confirm delete, and if confirmed should delete from page and send an UPDATE request to update the resource on the server
+clicking the edit button should unlock the text field, hide itself and show the save button
+clicking the save button should send an UPDATE request to update the resource,hide itself and show edit button<br>
+{{/unless}}

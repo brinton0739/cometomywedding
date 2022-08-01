@@ -22,6 +22,7 @@ async function getRegistry(wed) {
         }
     });
     const registry = registryData.get({ plain: true });
+    console.log(registry)
     registry.description = registry.description.split(',');
     return registry;
 };
@@ -38,10 +39,10 @@ async function getEvents(wed) {
 }
 
 const getDetails = async (wed, user) => {
-    const guest = getGuest(wed, user);
-    const wedding = getWedding(wed);
-    const registry = getRegistry(wed);
-    const events = getEvents(wed);
+    const guest = await getGuest(wed, user);
+    const wedding = await getWedding(wed);
+    const registry = await getRegistry(wed);
+    const events = await getEvents(wed);
     return { guest, wedding, registry, events };
 }
 
