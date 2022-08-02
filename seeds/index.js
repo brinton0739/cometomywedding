@@ -12,11 +12,11 @@ const seedAll = async () => {
   console.log('\n----- DATABASE SYNCED -----\n');
 
   await seedUsers();
-//   await seedWeddings();
-//   await seedGuests();
-//   await seedLocations();
-//   await seedEvents();
-//   await seedRegistrys();
+  await seedWeddings();
+  await seedGuests();
+  await seedLocations();
+  await seedEvents();
+  await seedRegistrys();
   console.log('\n----- USERS SEEDED -----\n');
 
   
