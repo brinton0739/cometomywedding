@@ -28,20 +28,22 @@ imageform.addEventListener("submit", async event =>{
       console.log(imageUrl)
 
     // post request to my server to serve any extra data
-  let photoHTML = `<div class= "group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+  let photoHTML = `<li class="relative"> <div class= "relative group block w-1/4 aspect-w-8 aspect-h-3 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
     <img src="${imageUrl}" alt="" class="object-cover pointer-events-none group-hover:opacity-75">
     <button type="button" class="absolute inset-0 focus:outline-none">
     </button>
-  </div>`
+  </div>
+  </li>`
 
     // let liIMG = document.createElement("li")
     // liIMG.innerHTML = photoHTML
-    // const photoSection = document.querySelector('#photo-section')
+    const photoSection = document.querySelector('#photo-section')
     // photoSection.appendChild(liIMG)
 
-    const img = document.createElement("img")
-    img.src = imageUrl
-    document.body.appendChild(img)
+    const li = document.createElement("div")
+   li.innerHTML = photoHTML
+    // photoSection.appendChild(li)
+    document.body.appendChild(li)
 
 
   })
