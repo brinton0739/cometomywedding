@@ -20,6 +20,11 @@ router.get("/wedding-album", (req, res) => {
     })
   })
 
+router.get("/registry", (req, res) => {
+    res.render("registry", {
+      loggedIn: req.session.loggedIn,
+    })
+  })
 
 
 module.exports = router
