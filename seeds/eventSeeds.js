@@ -1,4 +1,4 @@
-const Event = require('../models/Event')
+const { Event } = require('../models/index');
 const eventData = [
     {
         name: 'A wedding',
@@ -36,7 +36,7 @@ const eventData = [
         time: 'Another period of time',
         dress_code: 'Informal'
     }
-]
+];
 
 const seedEvents = () =>Event.bulkCreate(eventData);
 

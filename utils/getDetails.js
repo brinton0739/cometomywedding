@@ -1,4 +1,4 @@
-const { Guest, Wedding, Registry, Event } = require('../models/index');
+const { User, Guest, Wedding, Registry, Event, Signature} = require('../models/index');
 
 async function getGuest(wed, user) {
     const guestData = await Guest.findOne({
@@ -22,19 +22,43 @@ async function getRegistry(wed) {
         }
     });
     const registry = registryData.get({ plain: true });
-    console.log(registry)
     registry.description = registry.description.split(',');
     return registry;
 };
 
 async function getEvents(wed) {
-    const eventData = await Event.findAll({
+    const eventsData = await Event.findAll({
         where: {
             wedding_id: wed
         }
     });
-    return eventData.map(data => {
-        return data.get({ plain: true });
+    return eventsData.map(event => {
+        return event.get({ plain: true });
+    });
+}
+
+async function getSignatures(wed) {
+    const signatureData = await Signature.findAll({
+        where: {
+            wedding_id: wed
+        },
+        include: [
+            {
+              model: Guest,
+              where: {
+                wedding_id: wed
+              },
+              include: [
+                {
+                    model: User,
+                    attributes: ['first_name', 'last_name']
+                }
+              ]
+            },
+          ],
+    });
+    return signatureData.map(signature => {
+        return signature.get({ plain: true });
     });
 }
 
@@ -43,7 +67,8 @@ const getDetails = async (wed, user) => {
     const wedding = await getWedding(wed);
     const registry = await getRegistry(wed);
     const events = await getEvents(wed);
-    return { guest, wedding, registry, events };
+    const signatures = await getSignatures(wed);
+    return { guest, wedding, registry, events, signatures };
 }
 
 module.exports = getDetails;

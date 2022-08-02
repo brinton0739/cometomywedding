@@ -3,13 +3,12 @@
 
 <h2> Wedding Event Details</h2>
 {{#each events as |event|}}
-{{> wedding-event}}
+    {{> wedding-event}}
 {{/each}}
-<p>here</p>
-<a href="/wedding/1/guestbook"><button>sign the guestbook</button></a>
-<a href="/wedding/1/album"><button>add to the wedding album</button></a>
-<a href="/wedding/1/registry"><button>see the gift registry</button></a>
-
-
+<a href="/wedding/{{wedding.id}}/guestbook">Guestbook</a>
+<a href="/wedding/{{wedding.id}}/album">Wedding Album</a>
+<a href="/wedding/{{wedding.id}}/registry">Gift Registry</a>
 
 </div>
+
+{{#unless guest.access}}<script src='/javascript/weddingManager.js'></script>{{/unless}}

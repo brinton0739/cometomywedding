@@ -1,4 +1,4 @@
-const Guest = require('../models/Guest')
+const { Guest } = require('../models/index');
 const guestData = [
     {
         wedding_id: 1,
@@ -20,7 +20,7 @@ const guestData = [
         access: 1,
         user_id: 2
     }
-]
+];
 
 const seedGuests = () =>Guest.bulkCreate(guestData);
 
