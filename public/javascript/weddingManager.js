@@ -17,11 +17,11 @@ async function deleteEvent(e) {
             {
                 method: "DELETE",
             });
-        if (response.ok) {
-            document.querySelector(`#event-${e.target.dataset.event}`).remove();
-        } else {
-            alert("Failed to delete event.");
-        };
+    if (response.ok) {
+        document.querySelector(`#event-${e.target.dataset.event}`).remove();
+    } else {
+        alert("Failed to delete event.");
+    };
 };
 
 async function editEvent(e) {
@@ -61,20 +61,20 @@ async function saveEvent(e) {
     editButtons[index].removeAttribute('hidden');
     // create the edited text object
     const body = {
-        "name": eventNames[index].value,
-        "venue": eventVenues[index].value,
-        "address": eventAddresses[index].value,
-        "date": eventDates[index].value,
-        "time": eventTimes[index].value,
-        "dress_code": eventDressCodes[index].value
+        name: eventNames[index].value,
+        venue: eventVenues[index].value,
+        address: eventAddresses[index].value,
+        date: eventDates[index].value,
+        time: eventTimes[index].value,
+        dress_code: eventDressCodes[index].value
     };
     // send the edited text to the API
     const response = await fetch(
         `/api/event/update/${e.target.dataset.event}`, 
             {
-                method: "UPDATE",
+                method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: body
+                body: JSON.stringify(body)
             });
         if (response.ok) {
             alert("Event updated!");
