@@ -1,7 +1,6 @@
 const seedUsers = require('./userSeeds');
 const seedGuests = require('./guestSeeds');
 const seedEvents = require('./eventSeeds');
-const seedRegistrys = require('./registrySeeds');
 const seedWeddings = require('./weddingSeeds');
 const seedSignatures = require('./signatureSeeds');
 
@@ -15,9 +14,6 @@ const seedAll = async () => {
   await seedWeddings();
   await seedGuests();
   await seedEvents();
-  await seedLocations();
-  // await seedEvents();
-  await seedRegistrys();
   await seedSignatures();
   console.log('\n----- USERS SEEDED -----\n');
 

@@ -4,14 +4,13 @@ const eventData = [
         name: 'A wedding',
         venue: 'A place',
         address: 'Some address',
-        venue: 1,
         wedding_id: 1,
         date: 'Some date',
         time: 'Some time between one time and another',
         dress_code: 'Formal'
     },
     {
-        name: 'Another wedding',    
+        name: 'Another wedding',
         venue: 'A venue',
         address: 'Another address',
         wedding_id: 1,
@@ -34,8 +33,6 @@ const eventData = [
         address: 'Another address',
         wedding_id: 1,
         date: 'Another date',
-        venue: 2,
-        wedding_id: 2,
         time: 'Another period of time',
         dress_code: 'Informal'
     }
