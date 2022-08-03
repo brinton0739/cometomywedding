@@ -39,6 +39,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+app.delete("/event/delete/:event", async (req, res) => {
+  console.log("trying")
+  try {
+    const event = await Event.findOne({
+      where: {
+        id: req.params.event
+      }
+    })
+    event.destroy();
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+app.get('/s3Url', async (req, res)=> {
+    console.log(generateUploadURL())
+    const url = await generateUploadURL()
+    res.send({url})
+})
+
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
