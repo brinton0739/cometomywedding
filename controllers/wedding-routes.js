@@ -3,7 +3,6 @@ const router = require("express").Router()
 const getDetails = require('../utils/getDetails');
 const auth = require('../utils/auth');
 const withAuth = require("../utils/auth")
-a79ee2e62fdabc455035893cf4021eb20296fb9b
 
 router.get("/:wedding_id", async (req, res) => {
   const { guest, wedding, registry, events, signatures } = await getDetails(req.params.wedding_id, 1);
@@ -34,6 +33,4 @@ router.get("/registry", (req, res) => {
     })
   })
 
-
-a79ee2e62fdabc455035893cf4021eb20296fb9b
 module.exports = router
