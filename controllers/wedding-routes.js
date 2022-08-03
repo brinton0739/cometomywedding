@@ -1,7 +1,7 @@
 const res = require("express/lib/response")
 const router = require("express").Router()
 const withAuth = require("../utils/auth")
-const Photos = require('../models/Photos')
+const {Photos, Guest} = require('../models')
 
 router.get("/1", (req, res) => {
   res.render("wedding", {
@@ -9,7 +9,7 @@ router.get("/1", (req, res) => {
   })
 })
 
-router.get("/guestbook", (req, res) => {
+router.get("/1/guestbook", (req, res) => {
   res.render("guestbook", {
     loggedIn: req.session.loggedIn,
   })
@@ -45,10 +45,26 @@ router.get("/guestbook", (req, res) => {
   })
 
 
-router.get("/registry", (req, res) => {
-    res.render("registry", {
-      loggedIn: req.session.loggedIn,
-    })
+  router.get("/1/guestbook", withAuth, async (req, res) => {
+    try {
+      const guestData = await Wedding.findByPk(req.params.id, {
+        include: [
+          {
+            model: Guest,
+            as: "guests",
+          },
+        ],
+      })
+
+      const guests = guestData.get({ plain: true })
+  
+      res.render("guestList", {
+        // ...guests,
+        loggedIn: req.session.loggedIn,
+      })
+    } catch (err) {
+      res.status(500).json(err)
+    }
   })
 
 

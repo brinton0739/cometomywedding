@@ -60,4 +60,4 @@ Registry.belongsTo(Wedding, {
     foreignKey: 'wedding_id'
 });
 
-module.exports = { User, Guest, Location, Wedding, Registry, Event };
+module.exports = { User, Guest, Location, Photos, Wedding, Registry, Event };
