@@ -4,6 +4,7 @@ const authRoutes = require('./authRoutes');
 const createWeddingRoutes = require('./createWedding-route')
 const createEventRoutes = require('./createEvent-route')
 const eventRoutes = require('./eventRoutes');
+const createAlbumRoutes = require('./weddingAlbum-route')
 
 router.use("/create-event", createEventRoutes)
 router.use("/create-wedding", createWeddingRoutes)

@@ -47,10 +47,7 @@ Photos.belongsTo(Guest, {
 
 })
 
-Location.hasMany(Event, {
-    foreignKey: 'location_id',
-    onDelete: 'CASCADE'
-});
+
 Registry.belongsTo(Wedding, {
     foreignKey: 'wedding_id'
 });
