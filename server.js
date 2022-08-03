@@ -42,7 +42,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-<<<<<<< HEAD
 app.delete("/event/delete/:event", async (req, res) => {
   console.log("trying")
   try {
@@ -57,13 +56,12 @@ app.delete("/event/delete/:event", async (req, res) => {
     res.status(500).json(err);
   }
 });
-=======
+
 app.get('/s3Url', async (req, res)=> {
     console.log(generateUploadURL())
     const url = await generateUploadURL()
     res.send({url})
 })
->>>>>>> a79ee2e62fdabc455035893cf4021eb20296fb9b
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
