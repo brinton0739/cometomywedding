@@ -9,7 +9,15 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 const { s3, generateUploadURL} = require('./config/s3js');
+// const s3 = require('./config/s3js');
 
+//image requirements
+// const fs = require('fs')
+// const util = require('util')
+// const unlinkFile = util.promisify(fs.unlink)
+// const multer = require('multer')
+// const upload = multer({ dest: 'uploads/' })
+// const { uploadFile, getFileStream } = require('./s3')
 
 const app = express()
 
@@ -40,6 +48,30 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+
+
+//image stuff
+// app.get('/images/:key', (req, res) => {
+//     console.log(req.params)
+//     const key = req.params.key
+//     const readStream = getFileStream(key)
+  
+//     readStream.pipe(res)
+//   })
+  
+//   app.post('/images', upload.single('image'), async (req, res) => {
+//     const file = req.file
+//     console.log(file)
+  
+//     // apply filter
+//     // resize 
+  
+//     const result = await uploadFile(file)
+//     await unlinkFile(file.path)
+//     console.log(result)
+//     const description = req.body.description
+//     res.send({imagePath: `/images/${result.Key}`})
+//   })
 
 app.get('/s3Url', async (req, res)=> {
     console.log(generateUploadURL())
