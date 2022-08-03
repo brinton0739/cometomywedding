@@ -1,0 +1,9 @@
+<input type="text" id="registry{{this.id}}" name="fname" value="{{this}}" readonly><br>
+{{#unless guest.access}}
+<button class="delete" data-registry="{{this.id}}">Delete</button>
+<button class="edit" data-registry="{{this.id}}">Edit</button>
+<button class="save" data-registry="{{this.id}}" hidden="hidden">Save</button><br>
+clicking the delete button should open a dialog to confirm delete, and if confirmed should delete from page and send an UPDATE request to update the resource on the server
+clicking the edit button should unlock the text field, hide itself and show the save button
+clicking the save button should send an UPDATE request to update the resource,hide itself and show edit button<br>
+{{/unless}}

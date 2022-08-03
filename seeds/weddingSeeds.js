@@ -1,4 +1,4 @@
-const Wedding = require('../models/Wedding')
+const { Wedding } = require('../models/index');
 const weddingData = [
     {
         name: 'Some registry link',
@@ -12,7 +12,7 @@ const weddingData = [
         partner1: 'Partners',
         partner2: 'In Crime'
     }
-]
+];
 
 const seedWeddings = () =>Wedding.bulkCreate(weddingData);
 
