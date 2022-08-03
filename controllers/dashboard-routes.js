@@ -1,11 +1,15 @@
 const res = require("express/lib/response")
 const router = require("express").Router()
 const withAuth = require("../utils/auth")
+const getWedding = require('../utils/getWedding');
+const getMultipleWeddings = require('../utils/getMultipleWeddings');
+const getGuest = require('../utils/getGuest');
+const getEvent = require('../utils/getEvent');
+const getSignatures = require('../utils/getSignatures');
 
-router.get("/", (req, res) => {
-  res.render("dashboard", {
-    loggedIn: req.session.loggedIn,
-  })
+router.get("/", withAuth, async (req, res) => {
+  const weddings = await getMultipleWeddings(req.session.user_id);
+  res.render("dashboard", { weddings })
 })
 
 router.get("/create-wedding", withAuth, (req, res) => {

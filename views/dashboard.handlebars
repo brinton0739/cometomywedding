@@ -13,13 +13,9 @@
 
         <div class="bg-white mx-4 mt-2 shadow overflow-hidden rounded-md">
   <ul role="list" class="divide-y divide-gray-200">
-    <li class="px-6 py-4">
-        <a href="/wedding/1" class="text-teal-600"> MY WEDDING</a>
-    </li>
-     <li class="px-6 py-4">
-          <a href="/wedding/1"class="text-teal-600"> John and Sally's Wedding</a>
-    </li>
-
+{{#each weddings}}
+    {{> dashboard-weddings}}
+{{/each}}
     <!-- More items... -->
   </ul>
 </div>

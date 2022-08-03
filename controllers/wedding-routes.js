@@ -1,22 +1,39 @@
-const res = require("express/lib/response")
 const router = require("express").Router()
-const getDetails = require('../utils/getDetails');
+const getWedding = require('../utils/getWedding');
+const getEvent = require('../utils/getEvent');
+const getGuest = require('../utils/getGuest');
+const getSignatures = require('../utils/getSignatures');
 const auth = require('../utils/auth');
-const withAuth = require("../utils/auth")
+const convertAccess = require('../utils/convertAccess');
 
-router.get("/:wedding_id", async (req, res) => {
-  const { guest, wedding, registry, events, signatures } = await getDetails(req.params.wedding_id, 1);
-  res.render("wedding", {
-    loggedIn: req.session.loggedIn,
-    guest, wedding, registry, events
-  });
+router.get("/:wedding_id", auth, async (req, res) => {
+  try { 
+    const guest = await getGuest(req.params.wedding_id, req.session.user_id);
+    // converts the guest's access level to a particular named property because handlebars default uses boolean only
+    convertAccess(guest);
+    const wedding = await getWedding(req.params.wedding_id);
+    const events = await getEvent(req.params.wedding_id);
+    events.forEach(event => {
+      event.guest = guest;
+    });
+    if(guest.restricted) {
+      res.render("404");
+    };
+    res.render("wedding", {
+      loggedIn: req.session.loggedIn,
+      guest, wedding, events
+    });
+  } catch (err) {
+    res.render("404");
+  };
 });
 
-router.get("/:wedding_id/guestbook", async (req, res) => {
-  const { guest, wedding, registry, events, signatures } = await getDetails(req.params.wedding_id, 1);
+router.get("/:wedding_id/guestbook", auth, async (req, res) => {
+  const signatures = await getSignatures(req.params.wedding_id);
+  const wedding = await getWedding(req.params.wedding_id);
   res.render("guestbook", {
     loggedIn: req.session.loggedIn,
-    guest, wedding, signatures
+    wedding, signatures
   })
 })
 
