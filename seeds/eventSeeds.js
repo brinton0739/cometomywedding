@@ -34,10 +34,8 @@ const eventData = [
         address: 'Another address',
         wedding_id: 1,
         date: 'Another date',
-=======
         venue: 2,
         wedding_id: 2,
->>>>>>> a79ee2e62fdabc455035893cf4021eb20296fb9b
         time: 'Another period of time',
         dress_code: 'Informal'
     }
