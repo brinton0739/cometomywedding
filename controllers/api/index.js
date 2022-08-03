@@ -2,11 +2,11 @@ const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const authRoutes = require('./authRoutes');
 const createWeddingRoutes = require('./createWedding-route')
-const createEventRoutes = require('./createWedding-route')
+const createEventRoutes = require('./createEvent-route')
 const eventRoutes = require('./eventRoutes');
 
-router.use("./create-event", createEventRoutes)
-router.use("./create-wedding", createWeddingRoutes)
+router.use("/create-event", createEventRoutes)
+router.use("/create-wedding", createWeddingRoutes)
 
 router.use('/users', userRoutes);
 

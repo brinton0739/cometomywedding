@@ -1,5 +1,9 @@
 const User = require('./User');
 const Guest = require('./Guest');
+<<<<<<< HEAD
+=======
+const Location = require('./Location');
+>>>>>>> a79ee2e62fdabc455035893cf4021eb20296fb9b
 const Wedding = require('./Wedding');
 const Registry = require('./Registry');
 const Event = require('./Event');
