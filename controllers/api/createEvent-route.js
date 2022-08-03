@@ -14,10 +14,10 @@ router.post("/", async (req, res) => {
         } else {
           weddingId = req.session.wedding_id;
         }
-    const authorize = await Guest.findOne({ where: {user_id: req.session.user_id, wedding_id: weddingId}})
-    if (authorize == null || authorize.access !== admin) {
-      return res.status(401).end();
-    }
+    // const authorize = await Guest.findOne({ where: {user_id: req.session.user_id, wedding_id: weddingId}})
+    // if (authorize == null || authorize.access !== admin) {
+    //   return res.status(401).end();
+    // }
     try {
       const dbEventData = await Event.create({
         name: req.body.name,
@@ -26,7 +26,8 @@ router.post("/", async (req, res) => {
         venue: req.body.venue,
         address: req.body.address,
         dress_code: req.body.dress_code,
-        wedding_id: weddingId,
+        wedding_id: weddingId
+        
       })
 
       res.status(200).json(dbEventData)

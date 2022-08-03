@@ -17,7 +17,7 @@ const createWeddingFormHandler = async (event) => {
       })
 
       if (response.ok) {
-        document.location.replace("/dashboard/")
+        document.location.replace("/dashboard/create-event")
       } else {
         alert("Failed to create wedding.")
       }
