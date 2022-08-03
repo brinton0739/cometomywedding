@@ -1,3 +1,16 @@
+<div class="d-block">
+<h1>{{{wedding.partner1}}} and {{wedding.partner2}}'s Wedding</h1>
+
+<h2> Wedding Event Details</h2>
+{{#each events as |event|}}
+    {{> wedding-event}}
+{{/each}}
+<a href="/wedding/{{wedding.id}}/guestbook">Guestbook</a>
+<a href="/wedding/{{wedding.id}}/album">Wedding Album</a>
+<a href="/wedding/{{wedding.id}}/registry">Gift Registry</a>
+
+</div>
+
 <div class="min-h-full">
 
   <div class="py-4 mx-auto">
@@ -115,6 +128,4 @@
 <a href="/wedding/wedding-album"><button>add to the wedding album</button></a>
 <a href="/wedding/1/registry"><button>see the gift registry</button></a> --}}
 
-
-
-</div>
+{{#unless guest.access}}<script src='/javascript/weddingManager.js'></script>{{/unless}}

@@ -1,0 +1,13 @@
+<div id="event-{{this.id}}">
+    <input type="text" id="name-{{this.id}}" class="event-name" value="{{this.name}}" readonly><br>
+    <input type="text" id="venue-{{this.id}}" class="event-venue" value="{{this.venue}}" readonly><br>
+    <input type="text" id="address-{{this.id}}" class="event-address" value="{{this.address}}" readonly><br>
+    <input type="text" id="dress_code-{{this.id}}" class="event-dress_code" value="{{this.dress_code}}" readonly><br>
+    <input type="text" id="date-{{this.id}}" class="event-date" value="{{this.date}}" readonly><br>
+    <input type="text" id="time-{{this.id}}" class="event-time" value="{{this.time}}" readonly><br>
+{{#unless guest.access}}
+    <button class="delete" data-event="{{this.id}}">Delete</button>
+    <button class="edit" data-event="{{this.id}}">Edit</button>
+    <button class="save" data-event="{{this.id}}" hidden="hidden">Save</button><br>
+{{/unless}}
+</div>

@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Event extends Model {}
+class Signature extends Model {}
 
-Event.init(
+Signature.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,17 +11,9 @@ Event.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    venue: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    address: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    body: {
+        type: DataTypes.STRING,
+        allowNull: true,
     },
     wedding_id: {
       type: DataTypes.INTEGER,
@@ -31,25 +23,21 @@ Event.init(
         key: 'id',
       },
     },
-    date: {
-      type: DataTypes.STRING,
+    guest_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'guest',
+        key: 'id',
+      },
     },
-    time: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    dress_code: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    }
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'event',
+    modelName: 'signature',
   }
 );
 
-module.exports = Event;
+module.exports = Signature;

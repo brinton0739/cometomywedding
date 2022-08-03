@@ -1,14 +1,14 @@
 const User = require('./User');
-const Guest = require('./Event');
-const Location = require('./Location');
+const Guest = require('./Guest');
 const Wedding = require('./Wedding');
 const Registry = require('./Registry');
 const Event = require('./Event');
 const Photos = require('./Photos')
+const Signature = require('./Signature');
 
 
 User.hasMany(Guest, {
-    foreignKey: 'guest_id',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
@@ -29,35 +29,48 @@ Guest.belongsTo(Wedding, {
     foreignKey: 'wedding_id'
 });
 
-// Wedding.hasMany(Photos, {
-//     foreignKey: 'wedding_id',
-//     onDelete: 'CASCADE'
+Wedding.hasMany(Photos, {
+    foreignKey: 'wedding_id',
+    onDelete: 'CASCADE'
 
-// })
-// Guest.hasMany(Photos,{
-//     foreignKey: 'guest_id'
-// })
+})
+Guest.hasMany(Photos,{
+    foreignKey: 'guest_id'
+})
 
-// Photos.belongsTo(Wedding, {
-//     foreignKey: 'wedding_id'
-// })
+Photos.belongsTo(Wedding, {
+    foreignKey: 'wedding_id'
+})
 
-// Photos.belongsTo(Guest, {
-//     foreignKey: 'guest_id'
+Photos.belongsTo(Guest, {
+    foreignKey: 'guest_id'
 
-// })
+})
 
-// Location.hasMany(Event, {
-//     foreignKey: 'location_id',
-//     onDelete: 'CASCADE'
-// });
-
-// Event.hasOne(Location, {
-//     foreignKey: 'location_id'
-// });
-
+Location.hasMany(Event, {
+    foreignKey: 'location_id',
+    onDelete: 'CASCADE'
+});
 Registry.belongsTo(Wedding, {
     foreignKey: 'wedding_id'
 });
 
-module.exports = { User, Guest, Location, Wedding, Registry, Event };
+Guest.hasOne(Signature, {
+    foreignKey: 'guest_id',
+    onDelete: 'CASCADE'
+});
+
+Wedding.hasMany(Signature, {
+    foreignKey: 'wedding_id',
+    onDelete: 'CASCADE'
+});
+
+Signature.belongsTo(Guest, {
+    foreignKey: 'guest_id'
+});
+
+Signature.belongsTo(Wedding, {
+    foreignKey: 'wedding_id'
+});
+
+module.exports = { User, Guest, Wedding, Photos, Registry, Event, Signature };

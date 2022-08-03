@@ -1,4 +1,4 @@
-const User = require('../models/User')
+const { User } = require('../models/index');
 // password is the hash for "password1"
 const userData = [
     {
@@ -13,7 +13,7 @@ const userData = [
         email: "jane@aol.com",
         password: '$2b$10$UbyHlQ1CpCYnizGzj2aMQuYADBrDptqJChpWNrl2xrLJAr44SLvTK'
     }
-]
+];
 
 const seedUsers = () =>User.bulkCreate(userData);
 
