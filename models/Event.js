@@ -23,7 +23,6 @@ Event.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-  
     wedding_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,10 +39,6 @@ Event.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // location: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
     dress_code: {
       type: DataTypes.STRING,
       allowNull: false,

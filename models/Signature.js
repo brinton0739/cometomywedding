@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Registry extends Model {}
+class Signature extends Model {}
 
-Registry.init(
+Signature.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,9 +11,9 @@ Registry.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    body: {
+        type: DataTypes.STRING,
+        allowNull: true,
     },
     wedding_id: {
       type: DataTypes.INTEGER,
@@ -22,14 +22,22 @@ Registry.init(
         model: 'wedding',
         key: 'id',
       },
-    }
+    },
+    guest_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'guest',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'registry',
+    modelName: 'signature',
   }
 );
 
-module.exports = Registry;
+module.exports = Signature;
