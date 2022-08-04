@@ -2,6 +2,7 @@
 // const deleteButtons = [...document.querySelectorAll('.delete')];
 // const editButtons = [...document.querySelectorAll('.edit')];
 const saveButtons = [...document.querySelectorAll('.save')];
+const saveButtonClasses = 'save w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500';
 // get all the event divs
 const events = [...document.querySelectorAll('.event')];
 // get all the text fields
@@ -19,6 +20,7 @@ function showSaveButton(e) {
     });
     const index = datasets.indexOf(e.target.dataset.event);
     saveButtons[index].removeAttribute('hidden');
+    saveButtons[index].setAttribute('class', saveButtonClasses);
 };
 
 async function saveEvent(e) {
@@ -36,6 +38,7 @@ async function saveEvent(e) {
     eventDates[index].setAttribute('readonly', '');
     eventTimes[index].setAttribute('readonly', '');
     saveButtons[index].setAttribute('hidden', '');
+    saveButtons[index].setAttribute('class', 'save');
     /* Saved for possible expanded functionality. */
     // editButtons[index].removeAttribute('hidden');
 
