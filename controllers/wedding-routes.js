@@ -101,7 +101,6 @@ router.get("/:wedding_id/guestlist", withAuth, async (req, res) => {
     wedding.guests.forEach(guest => {
       guest.access = access;
     });
-    console.log(wedding);
     res.render("guestlist", {
       access, wedding,
       loggedIn: req.session.loggedIn,

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Wedding, Guest } = require("../../models/index");
+const { Wedding, Guest } = require("../../models/");
 const getGuest = require('../../utils/getGuest');
 const withAuth = require('../../utils/auth');
 
@@ -28,4 +28,4 @@ router.post("/:rsvp", withAuth, async (req, res) => {
     };
 });
 
-module.exports = router
+module.exports = router;

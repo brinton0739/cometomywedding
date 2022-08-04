@@ -1,72 +1,82 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <script src="https://kit.fontawesome.com/e5b76a8e97.js" crossorigin="anonymous"></script>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <script src="https://kit.fontawesome.com/e5b76a8e97.js" crossorigin="anonymous"></script>
 </head>
-    <title>The Wedding Loop</title>
-  </head>
+<title>The Wedding Loop</title>
+</head>
+
+<body>
+
   <body>
-    <body>
-<header class="bg-white">
-  <nav class="max-w-7xl mx-auto " aria-label="Top">
-    <div class="w-full py-6 flex items-center justify-between border-b-4 border-yellow-800">
-      <div class="flex items-center">
-        <a href="/">
-          <span class="sr-only">Wedding Loop</span>
-        <a href="/" class="text-xl font-medium text-teal-600 hover:text-yellow-800">  
-            </svg>
-          <img class="h-10 w-auto mx-6" src="/images/wedding_loop_logo.png" alt="">
-        </a>
-     {{#if loggedIn }}
-        <div class="ml-10 space-x-8 lg:block md:hidden hidden">
-        
-             <div class="hidden ml-10 space-x-8 lg:block"></div>
-          <a href="/dashboard/create-wedding" class="text-base font-medium text-teal-500 hover:text-yellow-800"> Create a Wedding </a>
+    <header class="bg-white">
+      <nav class="max-w-7xl mx-auto " aria-label="Top">
+        <div class="w-full py-6 flex items-center justify-between border-b-4 border-yellow-800">
+          <div class="flex items-center">
+            <a href="/">
+              <span class="sr-only">Wedding Loop</span>
+              <a href="/" class="text-xl font-medium text-teal-600 hover:text-yellow-800">
+                </svg>
+                <img class="h-10 w-auto mx-6" src="/images/wedding_loop_logo.png" alt="">
+              </a>
+              {{#if loggedIn }}
+              <div class="ml-10 space-x-8 lg:block md:hidden hidden">
 
-          <a href="/dashboard" class="text-base font-medium text-teal-500 hover:text-yellow-800"> My Weddings </a>
+                <div class="hidden ml-10 space-x-8 lg:block"></div>
+                <a href="/dashboard/create-wedding" class="text-base font-medium text-teal-500 hover:text-yellow-800">
+                  Create a Wedding </a>
 
-          <a href= "/dashboard/rsvp" class="text-base font-medium text-teal-500 hover:text-yellow-800"> RSVP </a>
+                <a href="/dashboard" class="text-base font-medium text-teal-500 hover:text-yellow-800"> My Weddings </a>
+
+                <a href="/dashboard/rsvp" class="text-base font-medium text-teal-500 hover:text-yellow-800"> RSVP </a>
 
 
+              </div>
+              {{else}}
+              {{/if}}
+          </div>
+          <div class="ml-10 space-x-4">
+            {{#if loggedIn}}
+
+            <a id="logout"
+              class="inline-block bg-teal-600 mx-5 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75 cursor-pointer">Logout</a>
+
+            {{else}}
+            <a id="login" href="/login"
+              class="inline-block mx-5 bg-teal-600 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">Login</a>
+            <a href="/signup"
+              class="inline-block bg-white py-2 px-4 border border-teal-600 rounded-md text-base font-medium text-teal-600 hover:bg-teal-50">Sign
+              up</a>
+            {{/if}}
+          </div>
         </div>
-        {{else}}
-        {{/if}}
-      </div>
-      <div class="ml-10 space-x-4">
-        {{#if loggedIn}}
-
-    <a id ="logout" class="inline-block bg-teal-600 mx-5 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">Logout</a>
-
-    {{else}}
-    <a id ="login" href="/login" class="inline-block mx-5 bg-teal-600 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">Login</a>
-    <a href="/signup" class="inline-block bg-white py-2 px-4 border border-teal-600 rounded-md text-base font-medium text-teal-600 hover:bg-teal-50">Sign up</a>
-    {{/if}}
-      </div>
-    </div>
-         {{#if loggedIn }}
-    <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
-          <a href="/dashboard/create-wedding" class="text-base font-medium text-teal-500 hover:text-yellow-800"> create a wedding </a>
+        {{#if loggedIn }}
+        <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
+          <a href="/dashboard/create-wedding" class="text-base font-medium text-teal-500 hover:text-yellow-800"> create
+            a wedding </a>
 
           <a href="/dashboard" class="text-base font-medium text-teal-500 hover:text-yellow-800"> My Weddings </a>
 
           <a href="#" class="text-base font-medium text-teal-500 hover:text-yellow-800"> RSVP </a>
-</div>
-  {{else}}
-   {{/if}}
-  </nav>
-</header>
+        </div>
+        {{else}}
+        {{/if}}
+      </nav>
+    </header>
 
 
-<main>
- <div class="container mx-auto px-4 sm:px-6 lg:px-4">
-{{{body}}}
-</div>
-</main>
-     
-{{#if loggedIn}}<script src="/javascript/logout.js"></script>{{/if}}
+    <main>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-4">
+        {{{body}}}
+      </div>
+    </main>
+
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>{{/if}}

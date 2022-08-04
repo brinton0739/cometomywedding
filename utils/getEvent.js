@@ -1,4 +1,4 @@
-const { Event } = require('../models/index');
+const { Event } = require('../models/');
 
 async function getEvents(wed) {
     const eventsData = await Event.findAll({
@@ -6,9 +6,12 @@ async function getEvents(wed) {
             wedding_id: wed
         }
     });
-    return eventsData.map(event => {
+    if(eventsData != null) return eventsData.map(event => {
         return event.get({ plain: true });
     });
-}
+    else return {
+        error: 'No events found.'
+    };
+};
 
 module.exports = getEvents;

@@ -1,4 +1,4 @@
-const { Signature } = require('../models/index');
+const { Signature } = require('../models/');
 const signatureData = [
     {
         body: 'A signature',

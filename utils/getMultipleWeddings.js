@@ -1,4 +1,4 @@
-const { User, Guest, Wedding } = require('../models/index');
+const { Guest, Wedding } = require('../models/');
 
 async function getMultipleWeddings(user) {
     const weddingData = await Guest.findAll({
@@ -11,11 +11,15 @@ async function getMultipleWeddings(user) {
             }
         ]
     });
-    return weddingData.map(wedding => {
-        const wed = wedding.wedding.get({ plain: true });
-        wed.access = wedding.access;
-        return wed;
-    });
+    if (weddingData != null) {
+        return weddingData.map(wedding => {
+            const wed = wedding.wedding.get({ plain: true });
+            wed.access = wedding.access;
+            return wed;
+        });
+    } else return {
+        error: 'No Weddings found for that User.'
+    };
 };
 
 module.exports = getMultipleWeddings;

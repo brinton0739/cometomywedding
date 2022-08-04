@@ -2,7 +2,7 @@ const User = require('./User');
 const Guest = require('./Guest');
 const Wedding = require('./Wedding');
 const Event = require('./Event');
-const Photos = require('./Photos')
+const Photos = require('./Photos');
 const Signature = require('./Signature');
 
 
@@ -27,20 +27,19 @@ Guest.belongsTo(Wedding, {
 Wedding.hasMany(Photos, {
     foreignKey: 'wedding_id',
     onDelete: 'CASCADE'
+});
 
-})
 Guest.hasMany(Photos,{
     foreignKey: 'guest_id'
-})
+});
 
 Photos.belongsTo(Wedding, {
     foreignKey: 'wedding_id'
-})
+});
 
 Photos.belongsTo(Guest, {
     foreignKey: 'guest_id'
-
-})
+});
 
 Guest.hasOne(Signature, {
     foreignKey: 'guest_id',

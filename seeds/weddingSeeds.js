@@ -1,4 +1,4 @@
-const { Wedding } = require('../models/index');
+const { Wedding } = require('../models/');
 const weddingData = [
     {
         name: 'Some registry link',

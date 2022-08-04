@@ -6,7 +6,7 @@ const homeRoutes = require('./home-routes.js');
 
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
-router.use('/dashboard', dashboardRoutes)
-router.use('/wedding',weddingRoutes)
+router.use('/dashboard', dashboardRoutes);
+router.use('/wedding', weddingRoutes);
 
 module.exports = router;
