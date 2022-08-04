@@ -9,12 +9,14 @@ const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 const { s3, generateUploadURL} = require('./config/s3js');
 
+require('dotenv');
+
 const app = express()
 
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-    secret: 'Super secret secret',
+    secret: process.env.SECRET_SALT,
     cookie: {},
     resave: false,
     saveUninitialized: true,
@@ -38,6 +40,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+
+app.get('*', (req, res) => {
+  res.render('404');
+});
 
 
 
