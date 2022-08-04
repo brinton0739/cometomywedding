@@ -12,11 +12,11 @@ router.post("/login", async (req, res) => {
       if (!dbUserData) {
         res
           .status(400)
-          .json({ message: "Incorrect email or password. Please try again!" })
-        return
+          .json({ message: "Incorrect email or password. Please try again!" });
+        return;
       };
   
-      const validPassword = await dbUserData.checkPassword(req.body.password)
+      const validPassword = await dbUserData.checkPassword(req.body.password);
   
       if (!validPassword) {
         res
@@ -28,14 +28,13 @@ router.post("/login", async (req, res) => {
       //save cookies for session after login
       req.session.save(() => {
         req.session.loggedIn = true
-        req.session.first_name = dbUserData.first_name,
-        req.session.last_name= dbUserData.last_name,
+        req.session.first_name = dbUserData.first_name
+        req.session.last_name= dbUserData.last_name
         req.session.user_id = dbUserData.id
-       
+        res
+          .status(200)
+          .json({ user: dbUserData, message: "You are now logged in!" })
       });
-      res
-        .status(200)
-        .json({ user: dbUserData, message: "You are now logged in!" })
     } catch (err) {
       console.log(err)
       res.status(500).json(err)
