@@ -1,9 +1,8 @@
 const rsvp = async () => {
-
     const code = document.getElementById('code-input').value;
     if (code == '') {
         return;
-    }
+    };
     try {
         const response = await fetch(
             `/api/rsvp/${code}`,
@@ -13,12 +12,12 @@ const rsvp = async () => {
         if (response.ok) {
             document.location.replace(`/wedding/${await response.json()}`);
         } else {
-            alert("Something went wrong.");
+            alert('Code is invalid or no longer exists.');
         };
     } catch (error) {
-        alert('unexpected issue, try again later');
-        document.location.replace("/dashboard/RSVP")
-    }
-}
+        alert('Error contacting server.');
+        document.location.replace("/dashboard/RSVP");
+    };
+};
 
-document.querySelector(".rsvp").addEventListener("click", rsvp)
+document.getElementById('submitRSVP').addEventListener("click", rsvp)
