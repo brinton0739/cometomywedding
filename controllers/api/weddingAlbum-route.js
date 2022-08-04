@@ -1,20 +1,19 @@
 const router = require("express").Router()
 const { Wedding, Guest } = require("../../models")
 const Photos = require('../../models/Photos')
+const getGuest = require('../../utils/getGuest')
 
 // const multer = require("multer")
 
 
 router.post("/", async (req, res) => {
     try {
-      // const guest = await getGuest(req.params.wedding_id, req.session.user_id);
+      const guest = await getGuest(req.body.wedding_id, req.session.user_id);
       const dbPhotoData = await Photos.create({
         image_url: req.body.image_url,
         date: new Date(),
-        guest_id: 1,
-        // wedding_id: req.params.wedding_id
-        wedding_id:1
-        // wedding_id:req.session.wedding_id
+        guest_id: guest.id,
+        wedding_id: req.body.wedding_id
       })
       res.status(200).json(dbPhotoData)
     } 
@@ -24,15 +23,15 @@ router.post("/", async (req, res) => {
     }
   })
 
-  router.get("/", async (req, res) => {
-    try {
-      const userPhoto = await Photos.findAll({})
-      console.log("user get")
-      return res.json(userPhoto)
-    } catch (err) {
-      res.json(err)
-    }
-  })
+  // router.get("/", async (req, res) => {
+  //   try {
+  //     const userPhoto = await Photos.findAll({})
+  //     console.log("user get")
+  //     return res.json(userPhoto)
+  //   } catch (err) {
+  //     res.json(err)
+  //   }
+  // })
 
 // const upload = multer({ dest: 'uploads/' })
 

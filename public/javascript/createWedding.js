@@ -7,12 +7,13 @@ const createWeddingFormHandler = async (event) => {
     const partner2 = document.querySelector("#partner2-name").value.trim();
 
     const name = document.querySelector("#wedding-name").value.trim();
+    const registry = document.querySelector("#registry-name").value.trim();
     
   
     if (partner1 && partner2 && name) {
       const response = await fetch("/api/create-wedding", {
         method: "POST",
-        body: JSON.stringify({ partner1, partner2, name}),
+        body: JSON.stringify({ partner1, partner2, name, registry}),
         headers: { "Content-Type": "application/json" },
       });
 
