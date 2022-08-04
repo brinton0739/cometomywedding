@@ -98,6 +98,7 @@ router.get("/:wedding_id/guestlist", withAuth, async (req, res) => {
       ],
     });
     const wedding = weddingData.get({ plain: true });
+    wedding.guests = wedding.guests.filter(guest => guest.access > 0);
     wedding.guests.forEach(guest => {
       guest.access = access;
     });
