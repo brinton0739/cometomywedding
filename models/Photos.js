@@ -19,18 +19,18 @@ Photos.init(
     guest_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // references: {
-      //   model: 'guest',
-      //   key: 'id',
-      // },
+      references: {
+        model: 'guest',
+        key: 'id',
+      },
 
     wedding_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // references: {
-      //   model: 'wedding',
-      //   key: 'id',
-      // },
+      references: {
+        model: 'wedding',
+        key: 'id',
+      },
     }
     },
     date: {
