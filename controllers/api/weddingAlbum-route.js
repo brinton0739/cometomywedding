@@ -1,9 +1,8 @@
 const router = require("express").Router()
-const { Wedding, Guest } = require("../../models")
-const Photos = require('../../models/Photos')
+const { Photos } = require("../../models")
 const getGuest = require('../../utils/getGuest')
 
-// const multer = require("multer")
+
 
 
 router.post("/", async (req, res) => {
@@ -23,30 +22,5 @@ router.post("/", async (req, res) => {
     }
   })
 
-  // router.get("/", async (req, res) => {
-  //   try {
-  //     const userPhoto = await Photos.findAll({})
-  //     console.log("user get")
-  //     return res.json(userPhoto)
-  //   } catch (err) {
-  //     res.json(err)
-  //   }
-  // })
-
-// const upload = multer({ dest: 'uploads/' })
-
-// router.post('/images', upload.single('image'), async (req, res) => {
-//     const file = req.file
-//     console.log(file)
   
-//     // apply filter
-//     // resize 
-  
-//     const result = await uploadFile(file)
-//     await unlinkFile(file.path)
-//     console.log(result)
-//     const description = req.body.description
-//     res.send({imagePath: `/images/${result.Key}`})
-//   })
-
   module.exports = router
