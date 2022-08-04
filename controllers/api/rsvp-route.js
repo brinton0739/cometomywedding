@@ -1,10 +1,12 @@
 const router = require("express").Router()
 const Wedding = require("../../models/Wedding")
+const Guest = require("../../models/Guest")
+// const withAuth = require("../utils/auth")
 
 console.log('rsvp loaded ===')
 
-// get wedding using RSVP code
-router.get("/:rsvp", async (req, res) => {
+// get wedding using RSVP code, need withAuth
+router.get("/:rsvp",  async (req, res) => {
     console.log(`rsvp code === ${req.params.rsvp}`);
 
     try {
