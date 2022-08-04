@@ -1,6 +1,8 @@
 const router = require("express").Router()
-const Photos = require('../../models/Photos')
+const { Photos } = require("../../models")
 const getGuest = require('../../utils/getGuest')
+
+
 
 
 router.post("/", async (req, res) => {

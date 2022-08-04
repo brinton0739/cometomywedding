@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const User = require("../../models/User")
+const {User, Guest} = require("../../models")
 
 router.post("/login", async (req, res) => {
     try {
@@ -8,7 +8,7 @@ router.post("/login", async (req, res) => {
           email: req.body.email,
         },
       })
-  
+ 
       if (!dbUserData) {
         res
           .status(400)
@@ -30,7 +30,8 @@ router.post("/login", async (req, res) => {
         req.session.loggedIn = true
         req.session.first_name = dbUserData.first_name,
         req.session.last_name= dbUserData.last_name,
-        req.session.user_id = dbUserData.id
+        req.session.user_id = dbUserData.id,
+     
         
   
         res
