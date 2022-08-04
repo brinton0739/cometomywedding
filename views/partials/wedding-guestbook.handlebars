@@ -1,9 +1,9 @@
 {{#unless this.access.restricted}}
-<li class="py-5">
+<li class="py-5{{#if this.access.admin}} signature{{/if}}" {{#if this.access.admin}}data-signature_id="{{this.id}}"{{/if}}>
     <div class="relative focus-within:ring-2 focus-within:ring-teal-500">
         <h3 class="text-sm font-semibold text-gray-800">
             <a href="#" class="hover:none focus:outline-none">
-                <p class="mt-1 text-lg text-gray-600 line-clamp-2">"{{body}}"</p>
+                <p class="mt-1 text-lg text-gray-600 line-clamp-2">"{{body}}" {{#if this.access.admin}}<button data-signature_id="{{this.id}}" class="delete text-white bg-red-600 rounded px-2 hover:bg-yellow-600">Delete</button>{{/if}}</p>
                 {{#if this.access.admin}}<p class="mt-1 text-sm text-gray-600 line-clamp-2">
                     {{this.guest.user.first_name}} {{this.guest.user.last_name}}</p>
                 <p class="mt-1 text-sm text-gray-600 line-clamp-2">{{this.guest.user.email}}</p>{{/if}}
