@@ -50,7 +50,7 @@ async function editEvent(e) {
     eventTimes[index].removeAttribute('readonly');
     // swap the edit and save buttons
     editButtons[index].setAttribute('hidden', '')
-    // saveButtons[index].removeAttribute('hidden');
+    saveButtons[index].removeAttribute('hidden');
 };
 
 async function saveEvent(e) {
@@ -68,7 +68,7 @@ async function saveEvent(e) {
     eventDates[index].setAttribute('readonly', '');
     eventTimes[index].setAttribute('readonly', '');
     saveButtons[index].setAttribute('hidden', '')
-    editButtons[index].removeAttribute('hidden');
+    // editButtons[index].removeAttribute('hidden');
     // create the edited text object
     const body = {
         name: eventNames[index].value,
