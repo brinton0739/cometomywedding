@@ -46,8 +46,17 @@ router.get("/:wedding_id/guestbook", auth, async (req, res) => {
 //     })
 //   })
 
-router.get("/:wedding_id/album", auth, async (req, res) => {
-  res.render("weddingAlbum")
+// router.get("/:wedding_id/album", auth, async (req, res) => {
+//   res.render("weddingAlbum")
+// })
+router.get("/:wedding_id/album", async (req, res) => {
+  try {
+    const userPhoto = await Photos.findAll({})
+    console.log("user get")
+    return res.json(userPhoto)
+  } catch (err) {
+    res.json(err)
+  }
 })
 
   // router.get("/:wedding_id/album", auth, async (req, res) => {
