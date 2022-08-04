@@ -44,17 +44,3 @@
     <a href="#" class="w-full flex justify-center items-center px-4 py-2 border border-teal-500 border-2 shadow-sm text-sm font-medium rounded-md text-teal-600 bg-white hover:bg-gray-50"> go to wedding </a>
   </div>
 </div>
-{{#if guest.access}}<h1>{{wedding.partner1}} and {{wedding.partner2}}'s Guestbook</h1>{{/if}}
-{{#unless guest.access}}<h1>Your Guestbook</h1>{{/unless}}
-{{#unless guest.access}}
-    {{#each signatures}}
-        {{> guestbook-private}}
-    {{/each}}
-{{/unless}}
-{{#if guest.access}}
-    {{#each signatures}}
-        {{> guestbook-public}}
-    {{/each}}
-{{/if}}
-{{#if guest.access}}<button>Sign the Guestbook</button>{{/if}}
-<a href="/wedding/{{wedding.id}}">Back to Wedding</a>

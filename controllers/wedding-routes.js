@@ -40,6 +40,7 @@ router.get("/:wedding_id/guestbook", auth, async (req, res) => {
   signatures.forEach(signature => {
     signature.guest = guest;
   });
+  console.log(signatures);
   res.render("guestbook", {
     loggedIn: req.session.loggedIn,
     wedding, signatures
@@ -56,9 +57,14 @@ router.get("/:wedding_id/guestbook", auth, async (req, res) => {
 
 router.get("/:wedding_id/album",  async (req, res) => {
   try {
-    const photoData = await Photos.findAll().catch((err) => {
+    const wedding = await getWedding(req.params.wedding_id);
+    const photoData = await Photos.findAll({
+      where: {
+        wedding_id: req.params.wedding_id
+      }
+    }).catch((err) => {
       res.json(err)
-    })
+    });
     // const userPhotos = photoData.filter(
     //   (photo) => photo.guest_id === req.session.guest_id
     // )
@@ -68,6 +74,7 @@ console.log(photos)
     res.render("weddingAlbum", {
       photos,
       loggedIn: req.session.loggedIn,
+      wedding
     });
   } catch (err) {
     console.log(err);
