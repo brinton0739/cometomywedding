@@ -7,7 +7,10 @@ async function getGuest(wed, user) {
             user_id: user
         }
     });
-    return guestData.get({ plain: true });
+    if(guestData != null) return guestData.get({ plain: true });
+    else return {
+        error: 'No guest found.'
+    };
 };
 
 module.exports = getGuest;

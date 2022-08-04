@@ -9,16 +9,10 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script src="https://kit.fontawesome.com/e5b76a8e97.js" crossorigin="anonymous"></script>
 </head>
-  {{!-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    <script>
-
-  </script>
     <title>The Wedding Loop</title>
   </head>
   <body>
     <body>
-      <!-- This example requires Tailwind CSS v2.0+ -->
-<!-- This example requires Tailwind CSS v2.0+ -->
 <header class="bg-white">
   <nav class="max-w-7xl mx-auto " aria-label="Top">
     <div class="w-full py-6 flex items-center justify-between border-b-4 border-yellow-800">
@@ -51,9 +45,8 @@
 
     {{else}}
     <a id ="login" href="/login" class="inline-block mx-5 bg-teal-600 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">Login</a>
-
+    <a href="/signup" class="inline-block bg-white py-2 px-4 border border-teal-600 rounded-md text-base font-medium text-teal-600 hover:bg-teal-50">Sign up</a>
     {{/if}}
-        {{!-- <a href="#" class="inline-block bg-white py-2 px-4 border border-teal-600 rounded-md text-base font-medium text-teal-600 hover:bg-teal-50">Sign up</a> --}}
       </div>
     </div>
          {{#if loggedIn }}
@@ -76,4 +69,4 @@
 </div>
 </main>
      
-          <script src="/javascript/logout.js"></script>
+{{#if loggedIn}}<script src="/javascript/logout.js"></script>{{/if}}

@@ -42,7 +42,6 @@ Photos.belongsTo(Guest, {
 
 })
 
-
 Guest.hasOne(Signature, {
     foreignKey: 'guest_id',
     onDelete: 'CASCADE'

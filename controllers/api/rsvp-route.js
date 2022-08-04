@@ -1,26 +1,31 @@
-const router = require("express").Router()
-const Wedding = require("../../models/Wedding")
-const Guest = require("../../models/Guest")
-// const withAuth = require("../utils/auth")
+const router = require("express").Router();
+const { Wedding, Guest } = require("../../models/index");
+const getGuest = require('../../utils/getGuest');
+const withAuth = require('../../utils/auth');
 
-console.log('rsvp loaded ===')
-
-// get wedding using RSVP code, need withAuth
-router.get("/:rsvp",  async (req, res) => {
-    console.log(`rsvp code === ${req.params.rsvp}`);
-
+// get wedding using RSVP code
+router.post("/:rsvp", withAuth, async (req, res) => {
     try {
-        const rsvp = await Wedding.findOne({
+        const weddingData = await Wedding.findOne({
             where: {
                 code: req.params.rsvp
             }
         });
-        console.log(`rsvp wedding data === ${rsvp}`);
-        res.status(200).json(rsvp)
+        const wedding = weddingData.get({ plain: true });
+        const guest = await getGuest(wedding.id, req.session.user_id);
+        // create a guest if one doesn't already exist for given input
+        if(guest.error) {
+            await Guest.create({
+                wedding_id: wedding.id,
+                access: 1,
+                user_id: req.session.user_id
+            });
+        };
+        res.status(200).send(`${wedding.id}`);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
-    }
+    };
 });
 
 module.exports = router

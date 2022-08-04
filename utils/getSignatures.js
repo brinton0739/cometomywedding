@@ -8,13 +8,10 @@ async function getSignatures(wed) {
         include: [
             {
               model: Guest,
-              where: {
-                wedding_id: wed
-              },
               include: [
                 {
                     model: User,
-                    attributes: ['first_name', 'last_name']
+                    attributes: ['first_name', 'last_name', 'email']
                 }
               ]
             },
