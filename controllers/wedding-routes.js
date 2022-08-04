@@ -1,6 +1,6 @@
 const router = require("express").Router()
 const withAuth = require("../utils/auth")
-const { Photos, Guest, Wedding } = require('../models')
+const { User, Photos, Guest, Wedding } = require('../models')
 const getWedding = require('../utils/getWedding');
 const getEvent = require('../utils/getEvent');
 const getGuest = require('../utils/getGuest');
@@ -39,7 +39,6 @@ router.get("/:wedding_id/guestbook", auth, async (req, res) => {
   signatures.forEach(signature => {
     signature.access = guest
   });
-  console.log(signatures)
   res.render("guestbook", {
     loggedIn: req.session.loggedIn,
     wedding, signatures, guest
@@ -81,21 +80,30 @@ router.get("/registry", (req, res) => {
 
 
 
-router.get("/1/guestbook", withAuth, async (req, res) => {
+router.get("/:wedding_id/guestlist", withAuth, async (req, res) => {
   try {
-    const guestData = await Wedding.findByPk(req.params.id, {
+    const access = await getGuest(req.params.wedding_id, req.session.user_id);
+    convertAccess(access);
+    const weddingData = await Wedding.findByPk(req.params.wedding_id, {
       include: [
         {
           model: Guest,
           as: "guests",
+          include: [
+            {
+              model: User
+            }
+          ]
         },
       ],
-    })
-
-    const guests = guestData.get({ plain: true })
-
-    res.render("guestList", {
-      // ...guests,
+    });
+    const wedding = weddingData.get({ plain: true });
+    wedding.guests.forEach(guest => {
+      guest.access = access;
+    });
+    console.log(wedding);
+    res.render("guestlist", {
+      access, wedding,
       loggedIn: req.session.loggedIn,
     })
   } catch (err) {
