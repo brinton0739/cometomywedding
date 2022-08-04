@@ -1,18 +1,52 @@
-<div class="min-h-full mx-auto">
+<div class="min-h-full flex justify-center">
 
 {{#unless guest.restricted}}<div class="min-h-full">
-  <div class="py-4 mx-auto">
-    <header class="flex flex-col ">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="mx-auto p-4">
+     
+
+        <div class="flex flex-col items-center mx-auto">
+
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-black leading-tight text-yellow-900 mb-4">{{{wedding.partner1}}} and
           {{wedding.partner2}}'s Wedding</h1>
       </div>
-      <ul role="list"
-        class=" lg:ml-20  grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+      {{!-- <div class="flex flex-col content-center"> --}}
+      {{!-- <ul role="list" class=" lg:ml-20  grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"> --}}
+     <div class="flex flex-col md:flex-row">
+      <a href="/wedding/{{wedding.id}}/album">
+            <div class=" m-2 relative group block w-60 h-20 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-teal-500 overflow-hidden">
+      <img src="/images/wedding_album.jpeg" alt="" class="object-contain pointer-events-none group-hover:opacity-75">
+          <div aria-hidden="true" class="absolute rounded-lg inset-0 bg-gray-700 opacity-50"></div>
+                      <h3 class=" z-40 text-xl font-bold text-teal-200 absolute inset-10 "> Wedding Album</h3>
+
+</div>
+</a>
+     <a href="/wedding/guestlist">
+            <div class="m-2 relative group block w-60 h-20 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-teal-500 overflow-hidden">
+      <img src="/images/guest_list.jpeg" alt="" class="object-scale-down pointer-events-none group-hover:opacity-75">
+          <div aria-hidden="true" class="absolute rounded-lg inset-0 bg-gray-700 opacity-50"></div>
+                      <h3 class=" mx- auto z-40 text-xl font-bold text-teal-200 absolute inset-10 "> The Guest List</h3>
+
+</div>
+</a>
+  <a href="/wedding/{{wedding.id}}/guestbook">
+            <div class="m-2 relative group block w-60 h-20 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-teal-500 overflow-hidden">
+      <img src="/images/guest_book.jpeg" alt="pic" class=" w-60">
+          <div aria-hidden="true" class="absolute rounded-lg inset-0 bg-gray-700 opacity-50"></div>
+                      <h3 class=" z-40 text-xl font-bold text-teal-200 absolute inset-10 "> Sign Guest Book</h3>
+
+</div>
+</a>
+</div>
+          </div>
+          </div> 
+
+      {{!-- <ul role="list"class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
         <li class="relative">
           <a href="/wedding/{{wedding.id}}/album">
             <div
-              class="group block w-full aspect-w-4 aspect-h-2 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+              class="group block w-100 aspect-w-4 aspect-h-2 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
               <img src="/images/wedding_album.jpeg" alt=""
                 class="object-cover pointer-events-none group-hover:opacity-75">
               <div aria-hidden="true" class="absolute inset-0 bg-gray-700 opacity-50"></div>
@@ -27,7 +61,7 @@
               class="group block w-full aspect-w-4 aspect-h-2 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
               <img src="/images/guest_book.jpeg" alt="" class="object-cover pointer-events-none group-hover:opacity-75">
               <div aria-hidden="true" class="absolute inset-0 bg-gray-700 opacity-50"></div>
-              <h3 class=" z-40 text-xl font-bold text-teal-200 absolute inset-10 "> Sign Guestbook</h3>
+              <h3 class=" z-40 text-xl font-bold text-teal-200 absolute inset-10 "> Guestbook</h3>
 
             </div>
           </a>
@@ -45,14 +79,20 @@
         </li>
 
   <!-- More files... -->
-</ul>
+</ul> --}}
 </div>
  </div>
 </div>
     <main>
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <!-- Replace with your content -->
+{{#if guest.admin}}
+<div class="m-2 border-4 p-4 border-dashed border-teal-100 rounded-lg h-full flex justify-center w-auto"> 
 
+<h2 class="text-xl text-teal-600"> Use this code to invite your guests: </h2>
+<h2 class="text-xl text-teal-600 ml-2 font-bold">{{wedding.code}}</h2>
+ </div>
+{{/if}}
 
       </div>
   </div>
