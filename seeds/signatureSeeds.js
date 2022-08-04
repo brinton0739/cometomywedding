@@ -6,8 +6,18 @@ const signatureData = [
         guest_id: 1
     },
     {
-        body: 'A signature',
+        body: 'A sig2ature',
         wedding_id: 1,
+        guest_id: 4
+    },
+    {
+        body: 'A signature',
+        wedding_id: 2,
+        guest_id: 1
+    },
+    {
+        body: 'A sig2ature',
+        wedding_id: 2,
         guest_id: 4
     },
 ];

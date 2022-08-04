@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const User  = require("../../models/User")
-// const { User } = require("../../models")
+const { User } = require("../../models")
 
 
 
@@ -38,8 +37,6 @@ router.post("/", async (req, res) => {
     }
   })
 
-  
-  
   // Logout
   router.post("/logout", (req, res) => {
     if (req.session.loggedIn) {

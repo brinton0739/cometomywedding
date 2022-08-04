@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const Wedding = require("../../models/Wedding")
+const { Wedding } = require("../../models/index");
 
 console.log('rsvp loaded ===')
 
