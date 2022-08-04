@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const { Wedding, Guest } = require("../../models/index");
 const getGuest = require('../../utils/getGuest');
+const withAuth = require('../../utils/auth');
 
 // get wedding using RSVP code
-router.post("/:rsvp", async (req, res) => {
+router.post("/:rsvp", withAuth, async (req, res) => {
     try {
         const weddingData = await Wedding.findOne({
             where: {
