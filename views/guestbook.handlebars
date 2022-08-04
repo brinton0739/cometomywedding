@@ -1,14 +1,9 @@
-{{#if guest.access}}<h1>{{wedding.partner1}} and {{wedding.partner2}}'s Guestbook</h1>{{/if}}
-{{#unless guest.access}}<h1>Your Guestbook</h1>{{/unless}}
-{{#unless guest.access}}
-    {{#each signatures}}
-        {{> guestbook-private}}
-    {{/each}}
-{{/unless}}
-{{#if guest.access}}
-    {{#each signatures}}
-        {{> guestbook-public}}
-    {{/each}}
-{{/if}}
-{{#if guest.access}}<button>Sign the Guestbook</button>{{/if}}
+{{#unless guest.restricted}}
+{{#if guest.admin}}<h1>Your Guestbook</h1>{{/if}}
+{{#if guest.normal}}<h1>{{wedding.partner1}} and {{wedding.partner2}}'s Guestbook</h1>{{/if}}
+{{#each signatures}}
+    {{> wedding-guestbook}}
+{{/each}}
+{{#if guest.normal}}<button>Sign the Guestbook</button>{{/if}}
 <a href="/wedding/{{wedding.id}}">Back to Wedding</a>
+{{/unless}}

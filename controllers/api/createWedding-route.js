@@ -11,6 +11,7 @@ router.post("/", async (req, res) => {
         partner2: req.body.partner2,
         name: req.body.name,
         code: code,
+        registry: req.body.registry
       })
     
       await Guest.create({
