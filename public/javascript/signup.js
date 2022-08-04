@@ -1,8 +1,4 @@
 // handles user signing up for the first time
-//select users input
-const first_name = document.querySelector("#first-signup").value.trim();
-const last_name = document.querySelector("#last-signup").value.trim();
-const email = document.querySelector("#email-signup").value.trim();
 // makes sure password and confirmation work
 function checkPasswords() {
   const password = document.querySelector("#password-signup1").value.trim();
@@ -19,6 +15,10 @@ function checkPasswords() {
 const signupFormHandler = async (event) => {
   event.preventDefault();
   // do nothing if password and confirmation password don't match
+  //select users input
+  const first_name = document.querySelector("#first-signup").value.trim();
+  const last_name = document.querySelector("#last-signup").value.trim();
+  const email = document.querySelector("#email-signup").value.trim();
   const password = document.querySelector("#password-signup1").value.trim();
   const confirms = document.querySelector("#password-signup2").value.trim();
   if (!(confirms === password)) return;
