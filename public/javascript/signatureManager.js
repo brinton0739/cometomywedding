@@ -25,4 +25,3 @@ async function deleteSignature(event) {
 deleteButtons.forEach(button => {
     button.addEventListener('click', deleteSignature);
 });
-
