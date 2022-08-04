@@ -1,18 +1,18 @@
-<div {{#if guest.admin}}id="event-{{this.id}}"{{/if}} class="px-4 py-4 sm:px-0">
+<div {{#if guest.admin}}id="event-{{this.id}}"{{/if}} class="px-4 py-4 sm:px-0 event">
     <div class="border-4 p-4 border-dashed border-teal-100 rounded-lg h-full">
         <div class="bg-gray-50 m-2">
             <div class=" pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
                 <dt class="text-xl ml-4 font-medium text-gray-900 md:col-span-3">Event:</dt>
                 <dd class="mt-2 md:mt-0 md:col-span-9">
                     {{#if guest.admin}}<input type="text" id="name-{{this.id}}"
-                        class="event-name text-base text-gray-500" value="{{this.name}}"><br>{{/if}}
-                    {{#if guest.normal}}<p class="text-base text-gray-500"> {eventname}</p>{{/if}}
+                        class="event-name text-base text-gray-500" data-event="{{this.id}}" value="{{this.name}}"><br>{{/if}}
+                    {{#if guest.normal}}<p class="text-base text-gray-500"> {{this.name}}</p>{{/if}}
                 </dd>
             </div>
             <div class=" pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
                 <dt class="text-xl ml-4 font-medium text-gray-900 md:col-span-3">Date:</dt>
                 <dd class="mt-2 md:mt-0 md:col-span-9">
-                    {{#if guest.admin}}<input type="text" id="date-{{this.id}}" class="event-date"
+                    {{#if guest.admin}}<input type="text" id="date-{{this.id}}" class="event-date" data-event="{{this.id}}" 
                         value="{{this.date}}"><br>{{/if}}
                     {{#if guest.normal}}<p class="text-base text-gray-500"> {{this.date}}</p>{{/if}}
                 </dd>
@@ -20,7 +20,7 @@
             <div class=" pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
                 <dt class="text-xl ml-4 font-medium text-gray-900 md:col-span-3">Time:</dt>
                 <dd class="mt-2 md:mt-0 md:col-span-9">
-                    {{#if guest.admin}}<input type="text" id="time-{{this.id}}" class="event-time"
+                    {{#if guest.admin}}<input type="text" id="time-{{this.id}}" class="event-time" data-event="{{this.id}}" 
                         value="{{this.time}}"><br>{{/if}}
                     {{#if guest.normal}}<p class="text-base text-gray-500"> {{this.time}}</p>{{/if}}
                 </dd>
@@ -28,7 +28,7 @@
             <div class=" pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
                 <dt class="text-xl ml-4 font-medium text-gray-900 md:col-span-3">Location:</dt>
                 <dd class="mt-2 md:mt-0 md:col-span-9">
-                    {{#if guest.admin}}<input type="text" id="venue-{{this.id}}" class="event-venue"
+                    {{#if guest.admin}}<input type="text" id="venue-{{this.id}}" class="event-venue" data-event="{{this.id}}" 
                         value="{{this.venue}}"><br>{{/if}}
                     {{#if guest.normal}}<p class="text-base text-gray-500"> {{this.venue}}</p>{{/if}}
                 </dd>
@@ -37,7 +37,7 @@
             <div class=" pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
                 <dt class="text-xl ml-4 font-medium text-gray-900 md:col-span-3"> Address:</dt>
                 <dd class="mt-2 md:mt-0 md:col-span-9">
-                    {{#if guest.admin}}<input type="text" id="address-{{this.id}}" class="event-address"
+                    {{#if guest.admin}}<input type="text" id="address-{{this.id}}" class="event-address" data-event="{{this.id}}" 
                         value="{{this.address}}"><br>{{/if}}
                     {{#if guest.normal}}<p class="text-base text-gray-500"> {{this.address}}</p>{{/if}}
                 </dd>
@@ -45,7 +45,7 @@
             <div class=" pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
                 <dt class="text-xl ml-4 font-medium text-gray-900 md:col-span-3">Dress Code:</dt>
                 <dd class="mt-2 md:mt-0 md:col-span-9">
-                    {{#if guest.admin}}<input type="text" id="dress_code-{{this.id}}" class="event-dress_code"
+                    {{#if guest.admin}}<input type="text" id="dress_code-{{this.id}}" class="event-dress_code" data-event="{{this.id}}" 
                         value="{{this.dress_code}}"><br>{{/if}}
                     {{#if guest.normal}}<p class="text-base text-gray-500"> {{this.dress_code}}</p>{{/if}}
                 </dd>
@@ -53,9 +53,9 @@
             <div class=" pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
                 <dt class="text-xl ml-4 font-medium text-gray-900 md:col-span-3">Registry:</dt>
                 <dd class="mt-2 md:mt-0 md:col-span-9">
-                    {{#if guest.admin}}<input type="text" id="registry-{{this.id}}" class="event-registry"
+                    {{#if guest.admin}}<input type="text" id="registry-{{this.id}}" class="event-registry" data-event="{{this.id}}" 
                         value="{{this.registry}}"><br>{{/if}}
-                    {{#if guest.normal}}<a href=" ">
+                    {{#if guest.normal}}<a href="{{this.registry}}">
                         <p class="text-base text-teal-500 text-decoration-line: underline"> {{this.registry}}</p>
                     </a>{{/if}}
                 </dd>

@@ -1,6 +1,6 @@
 const imageform = document.querySelector('#imageForm')
 const imageInput = document.querySelector('#imageInput')
-const wedding_id = 
+const wedding_id = imageform.dataset.wedding_id;
 console.log('image form')
 imageform.addEventListener("submit", async event =>{
     event.preventDefault()
@@ -33,7 +33,10 @@ imageform.addEventListener("submit", async event =>{
         if (image_url) {
           const response = await fetch("/api/create-photo", {
             method: "POST",
-            body: JSON.stringify({ image_url:image_url }),
+            body: JSON.stringify({
+              image_url: image_url,
+              wedding_id: wedding_id
+            }),
             headers: { "Content-Type": "application/json" },
           })
       

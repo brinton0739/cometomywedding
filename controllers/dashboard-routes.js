@@ -9,7 +9,10 @@ const getSignatures = require('../utils/getSignatures');
 
 router.get("/", withAuth, async (req, res) => {
   const weddings = await getMultipleWeddings(req.session.user_id);
-  res.render("dashboard", { weddings })
+  res.render("dashboard", {
+    loggedIn: req.session.loggedIn,
+    weddings
+  })
 })
 
 router.get("/create-wedding", withAuth, (req, res) => {
