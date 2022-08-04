@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const User  = require("../../models/User")
-// const { User } = require("../../models")
+const Guest = require("../../models/Guest")
 
 
 
@@ -23,6 +23,12 @@ router.post("/", async (req, res) => {
         email: req.body.email,
         password: req.body.password,
       })
+
+      // if (dbUserData.id) {
+      //   const gData = Guest.create({
+
+      //   })
+      // }
   
       //saves cookies for session
       req.session.save(() => {
