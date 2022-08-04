@@ -2,16 +2,27 @@
 <div>
   <div class="flow-root mt-6">
     <ul role="list" class="-my-5 divide-y divide-gray-200">
-      {{#if guest.admin}}<h1>Your Guestbook</h1>{{/if}}
-      {{#if guest.normal}}<h1>{{wedding.partner1}} and {{wedding.partner2}}'s Guestbook</h1>{{/if}}
+      {{#if guest.admin}}<h1 class="text-2xl text-color-yellow-900">Your Guestbook</h1>{{/if}}
+      {{#if guest.normal}}<h1 class="text-2xl font-bold text-yellow-900">{{wedding.partner1}} and {{wedding.partner2}}'s Guestbook</h1>{{/if}}
       {{#if guest.normal}}
       <div class="mt-6">
         <button id="sign" class="w-full flex justify-center items-center px-4 py-2 border border-teal-500 border-2 shadow-sm text-sm font-medium rounded-md text-teal-600 bg-white hover:bg-gray-50">Sign
           the Guestbook</button>
+          <div class="my-10 sm:mt-0 sm:col-span-2"> 
         <form name="addSignature" id="addSignature" class="hidden">
-          <input type="text" id="signatureText" for="addSignature" class="w-full flex justify-center items-center px-4 py-2 text-center">
-          <input type="button" id="submitSignature" for="addSignature" value="Submit" class="w-full flex justify-center items-center px-4 py-2 border border-teal-500 border-2 shadow-sm text-sm font-medium rounded-md text-teal-600 bg-white hover:bg-gray-50 cursor-pointer">
+              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="about" class="block text-sm w-full font-medium text-gray-700 sm:mt-px sm:pt-2"> Write something to the happy couple!</label>
+          
+        <input type="text" id="signatureText" for="addSignature" class="w-full text-center rounded-md border-grey-500">
+          {{!-- <input type="button" id="submitSignature" for="addSignature" value="Submit" class="w-full flex justify-center items-center px-4 py-2 border border-teal-500 border-2 shadow-sm text-sm font-medium rounded-md text-teal-600 bg-white hover:bg-gray-50 cursor-pointer"> --}}
+        <button type="submit" id="submitSignature" class=" w-24 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400">Submit</button>
+
+            {{!-- <textarea id="signatureText" name="about" rows="3" class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"></textarea> --}}
+            {{!-- <p class="mt-2 text-sm text-gray-500">Write a few sentences about yourself.</p> --}}
+          </div>
+        </div>
         </form>
+        </div>
       </div>
       {{/if}}
       {{#each signatures}}
