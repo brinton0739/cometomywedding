@@ -1,5 +1,6 @@
 const imageform = document.querySelector('#imageForm')
 const imageInput = document.querySelector('#imageInput')
+const wedding_id = 
 console.log('image form')
 imageform.addEventListener("submit", async event =>{
     event.preventDefault()
