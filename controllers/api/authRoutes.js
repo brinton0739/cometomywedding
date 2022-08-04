@@ -31,6 +31,7 @@ router.post("/login", async (req, res) => {
         req.session.first_name = dbUserData.first_name,
         req.session.last_name= dbUserData.last_name,
         req.session.user_id = dbUserData.id
+        
   
         res
           .status(200)

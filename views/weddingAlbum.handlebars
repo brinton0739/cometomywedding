@@ -16,18 +16,19 @@
      Upload
     </button>
 
-  {{!-- <form id="imageForm">
-    <input id="imageInput" type="file" accept="image/*">
-    <button type="submit">Upload</button>
-  </form> --}}
-
-
-<ul role="list" id="photo-section" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-  <li class="relative">
-  </li>
-
-  <!-- More files... -->
-</ul>
-
+</form>
 </div>
+<div id="photo-section" class="flex">
+  {{!-- <div id="photo-section" class="grid gap-4 grid-cols-3 grid-rows-3"> --}}
+ {{#each photos as |photo|}}
+<div class= "aspect-square w-64 rounded-md p-2">
+  <img src= "{{photo.image_url}}" class="object-cover rounded-md">
+
+    </div>
+     {{else}}
+    <p> no photos posts yet!</p>
+  {{/each}}
+  </div>
+</div>
+
   <script src="/javascript/weddingAlbum.js"></script>

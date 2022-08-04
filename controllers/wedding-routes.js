@@ -1,4 +1,6 @@
 const router = require("express").Router()
+const withAuth = require("../utils/auth")
+const {Photos, Guest, Wedding} = require('../models')
 const getWedding = require('../utils/getWedding');
 const getEvent = require('../utils/getEvent');
 const getGuest = require('../utils/getGuest');
@@ -37,17 +39,56 @@ router.get("/:wedding_id/guestbook", auth, async (req, res) => {
   })
 })
 
+// router.get("/wedding-album", (req, res) => {
 
-router.get("/wedding-album", (req, res) => {
+//     res.render("weddingAlbum", {
+//       loggedIn: req.session.loggedIn,
+//     })
+//   })
+
+
+router.get("/:wedding_id/album",  async (req, res) => {
+  try {
+    const photoData = await Photos.findAll().catch((err) => {
+      res.json(err)
+    })
+    // const userPhotos = photoData.filter(
+    //   (photo) => photo.guest_id === req.session.guest_id
+    // )
+    const photos = photoData.map((photo) => photo.get({ plain: true }))
+    // const photos = userPhotos.map((photo) => photo.get({ plain: true }))
+console.log(photos)
     res.render("weddingAlbum", {
+      photos,
       loggedIn: req.session.loggedIn,
     })
-  })
+  } catch (err) {
+    console.log(err)
+  }
+})
 
-router.get("/registry", (req, res) => {
-    res.render("registry", {
-      loggedIn: req.session.loggedIn,
-    })
+
+
+  router.get("/1/guestbook", withAuth, async (req, res) => {
+    try {
+      const guestData = await Wedding.findByPk(req.params.id, {
+        include: [
+          {
+            model: Guest,
+            as: "guests",
+          },
+        ],
+      })
+
+      const guests = guestData.get({ plain: true })
+  
+      res.render("guestList", {
+        // ...guests,
+        loggedIn: req.session.loggedIn,
+      })
+    } catch (err) {
+      res.status(500).json(err)
+    }
   })
 
 module.exports = router
