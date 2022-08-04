@@ -11,7 +11,7 @@ imageform.addEventListener("submit", async event =>{
     //get secure url from our server
 
     const { url } = await fetch("/s3Url").then(res => res.json())
-    console.log(url)
+    // console.log(url)
   
 
     //post the image directly to s3 bucket
@@ -24,16 +24,33 @@ imageform.addEventListener("submit", async event =>{
         body: file
       })
     
-      const imageUrl = url.split('?')[0]
-      console.log(imageUrl)
+      const image_url = url.split('?')[0]
+      console.log(image_url)
 
-    // post request to my server to serve any extra data
-  let photoHTML = `<li class="relative"> <div class= "relative group block w-1/4 aspect-w-8 aspect-h-3 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-    <img src="${imageUrl}" alt="" class="object-cover pointer-events-none group-hover:opacity-75">
-    <button type="button" class="absolute inset-0 focus:outline-none">
-    </button>
-  </div>
-  </li>`
+    
+      
+        if (image_url) {
+          const response = await fetch("/api/create-photo", {
+            method: "POST",
+            body: JSON.stringify({ image_url:image_url }),
+            headers: { "Content-Type": "application/json" },
+          })
+      
+          if (response.ok) {
+            console.log('successful post')
+           
+            document.location.reload("")
+          } else {
+            alert("Failed to post photo.")
+            console.log(response)
+          }
+        }
+      
+
+  let photoHTML = `
+  <div class= "relative aspect-square w-64 rounded-md p-2">
+  <img src= "${image_url}" class="object-cover rounded-md">
+    </div>  `
 
     // let liIMG = document.createElement("li")
     // liIMG.innerHTML = photoHTML

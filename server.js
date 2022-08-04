@@ -7,7 +7,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
-
+const { s3, generateUploadURL} = require('./config/s3js');
 
 const app = express()
 
@@ -39,20 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-app.delete("/event/delete/:event", async (req, res) => {
-  console.log("trying")
-  try {
-    const event = await Event.findOne({
-      where: {
-        id: req.params.event
-      }
-    })
-    event.destroy();
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+
 
 app.get('/s3Url', async (req, res)=> {
     console.log(generateUploadURL())
