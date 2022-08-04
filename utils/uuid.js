@@ -1,5 +1,5 @@
 const uuid = require('uuid');
-const Wedding = require('../models/Wedding')
+const { Wedding }= require('../models/')
 
 
 const generateWeddingCode = async () => {
@@ -10,7 +10,7 @@ const generateWeddingCode = async () => {
         return generateWeddingCode();
     } else {
         return id;
-    }
+    };
 };
 
 module.exports = generateWeddingCode;

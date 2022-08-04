@@ -1,4 +1,4 @@
-const { Guest } = require('../models/index');
+const { Guest } = require('../models/');
 
 async function getGuest(wed, user) {
     const guestData = await Guest.findOne({
@@ -9,7 +9,7 @@ async function getGuest(wed, user) {
     });
     if(guestData != null) return guestData.get({ plain: true });
     else return {
-        error: 'No guest found.'
+        error: 'No Guest found with parameters.'
     };
 };
 

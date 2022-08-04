@@ -1,6 +1,6 @@
 // get all the buttons
-const deleteButtons = [...document.querySelectorAll('.delete')];
-const editButtons = [...document.querySelectorAll('.edit')];
+// const deleteButtons = [...document.querySelectorAll('.delete')];
+// const editButtons = [...document.querySelectorAll('.edit')];
 const saveButtons = [...document.querySelectorAll('.save')];
 // get all the event divs
 const events = [...document.querySelectorAll('.event')];
@@ -21,38 +21,6 @@ function showSaveButton(e) {
     saveButtons[index].removeAttribute('hidden');
 };
 
-async function deleteEvent(e) {
-    const response = await fetch(
-        `/api/event/delete/${e.target.dataset.event}`, 
-            {
-                method: "DELETE",
-            });
-    if (response.ok) {
-        document.querySelector(`#event-${e.target.dataset.event}`).remove();
-    } else {
-        alert("Failed to delete event.");
-    };
-};
-
-async function editEvent(e) {
-    // map all the names of the events on page so we can use this array to get the index
-    const datasets = eventNames.map(name => {
-        return name.id;
-    });
-    // get the index of the event of event
-    const index = datasets.indexOf(`name-${e.target.dataset.event}`);
-    // make all the event details editable
-    eventNames[index].removeAttribute('readonly');
-    eventVenues[index].removeAttribute('readonly');
-    eventAddresses[index].removeAttribute('readonly');
-    eventDressCodes[index].removeAttribute('readonly');
-    eventDates[index].removeAttribute('readonly');
-    eventTimes[index].removeAttribute('readonly');
-    // swap the edit and save buttons
-    editButtons[index].setAttribute('hidden', '')
-    saveButtons[index].removeAttribute('hidden');
-};
-
 async function saveEvent(e) {
     // map all the names of the events on page so we can use this array to get the index
     const datasets = eventNames.map(name => {
@@ -67,8 +35,10 @@ async function saveEvent(e) {
     eventDressCodes[index].setAttribute('readonly', '');
     eventDates[index].setAttribute('readonly', '');
     eventTimes[index].setAttribute('readonly', '');
-    saveButtons[index].setAttribute('hidden', '')
+    saveButtons[index].setAttribute('hidden', '');
+    /* Saved for possible expanded functionality. */
     // editButtons[index].removeAttribute('hidden');
+
     // create the edited text object
     const body = {
         name: eventNames[index].value,
@@ -81,29 +51,63 @@ async function saveEvent(e) {
     };
     // send the edited text to the API
     const response = await fetch(
-        `/api/event/update/${e.target.dataset.event}`, 
-            {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(body)
-            });
-        if (response.ok) {
-            alert("Event updated!");
-        } else {
-            alert("Failed to update event.");
-        };
+        `/api/event/update/${e.target.dataset.event}`,
+        {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+        });
+    if (response.ok) {
+        alert("Event updated!");
+    } else {
+        alert("Failed to update event.");
+    };
 };
 
 // add event listeners to buttons
-for(let i = 0; i < events.length; i++) {
+for (let i = 0; i < events.length; i++) {
+    /* Saved for possible expanded functionality. */
     // deleteButtons[i].addEventListener("click", deleteEvent);
     // editButtons[i].addEventListener("click", editEvent);
     saveButtons[i].addEventListener("click", saveEvent);
-    eventNames[i].addEventListener("change", event => { showSaveButton(event) });
-    eventVenues[i].addEventListener("change", event => { showSaveButton(event) });
-    eventAddresses[i].addEventListener("change", event => { showSaveButton(event) });
-    eventDressCodes[i].addEventListener("change", event => { showSaveButton(event) });
-    eventDates[i].addEventListener("change", event => { showSaveButton(event) });
-    eventTimes[i].addEventListener("change", event => { showSaveButton(event) });
-    eventRegistry[i].addEventListener("change", event => { showSaveButton(event) });
-}
+    eventNames[i].addEventListener("change", event => showSaveButton(event));
+    eventVenues[i].addEventListener("change", event => showSaveButton(event));
+    eventAddresses[i].addEventListener("change", event => showSaveButton(event));
+    eventDressCodes[i].addEventListener("change", event => showSaveButton(event));
+    eventDates[i].addEventListener("change", event => showSaveButton(event));
+    eventTimes[i].addEventListener("change", event => showSaveButton(event));
+    eventRegistry[i].addEventListener("change", event => showSaveButton(event));
+};
+
+/* Saved for possible expanded functionality. */
+// async function deleteEvent(e) {
+//     const response = await fetch(
+//         `/api/event/delete/${e.target.dataset.event}`, 
+//             {
+//                 method: "DELETE",
+//             });
+//     if (response.ok) {
+//         document.querySelector(`#event-${e.target.dataset.event}`).remove();
+//     } else {
+//         alert("Failed to delete event.");
+//     };
+// };
+
+// async function editEvent(e) {
+//     // map all the names of the events on page so we can use this array to get the index
+//     const datasets = eventNames.map(name => {
+//         return name.id;
+//     });
+//     // get the index of the event of event
+//     const index = datasets.indexOf(`name-${e.target.dataset.event}`);
+//     // make all the event details editable
+//     eventNames[index].removeAttribute('readonly');
+//     eventVenues[index].removeAttribute('readonly');
+//     eventAddresses[index].removeAttribute('readonly');
+//     eventDressCodes[index].removeAttribute('readonly');
+//     eventDates[index].removeAttribute('readonly');
+//     eventTimes[index].removeAttribute('readonly');
+//     // swap the edit and save buttons
+//     editButtons[index].setAttribute('hidden', '')
+//     saveButtons[index].removeAttribute('hidden');
+// };

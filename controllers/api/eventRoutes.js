@@ -1,9 +1,8 @@
-const router = require("express").Router()
-const Event = require("../../models/Event")
-console.log('loaded')
+const router = require("express").Router();
+const { Event } = require("../../models/");
+
 router.delete("/delete/:event", async (req, res) => {
     console.log('\x1b[36m%s\x1b[0m', `Attempting to delete event with id: ${req.params.event}`);
-
     try {
         const event = await Event.findOne({
             where: {
@@ -15,7 +14,7 @@ router.delete("/delete/:event", async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
-    }
+    };
 });
 
 router.put("/update/:event", async (req, res) => {
@@ -36,8 +35,8 @@ router.put("/update/:event", async (req, res) => {
         });
         console.log(event);
     } catch (err) {
-        console.log(err)
+        console.log(err);
     };
 });
 
-module.exports = router
+module.exports = router;
