@@ -60,6 +60,13 @@
         {{> wedding-event}}
         {{/each}}
 </div>
+{{#if guest.admin}}
+<div class="m-2 border-4 p-4 border-dashed border-teal-100 rounded-lg h-full flex justify-center w-auto"> 
+
+<h2 class="text-xl text-teal-600"> Use this code to invite your guests: </h2>
+<h2 class="text-xl text-teal-600 ml-2 font-bold">{{wedding.code}}</h2>
+ </div>
+{{/if}}
 </main>
 
 {{#if guest.admin}}<script src='/javascript/weddingManager.js'></script>{{/if}}{{/unless}}

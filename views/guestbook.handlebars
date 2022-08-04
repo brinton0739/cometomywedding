@@ -1,21 +1,31 @@
 {{#unless guest.restricted}}
-
 <div>
   <div class="flow-root mt-6">
     <ul role="list" class="-my-5 divide-y divide-gray-200">
       {{#if guest.admin}}<h1>Your Guestbook</h1>{{/if}}
       {{#if guest.normal}}<h1>{{wedding.partner1}} and {{wedding.partner2}}'s Guestbook</h1>{{/if}}
+      {{#if guest.normal}}
+      <div class="mt-6">
+        <button id="sign" class="w-full flex justify-center items-center px-4 py-2 border border-teal-500 border-2 shadow-sm text-sm font-medium rounded-md text-teal-600 bg-white hover:bg-gray-50">Sign
+          the Guestbook</button>
+        <form name="addSignature" id="addSignature" class="hidden">
+          <input type="text" id="signatureText" for="addSignature" class="w-full flex justify-center items-center px-4 py-2 text-center">
+          <input type="button" id="submitSignature" for="addSignature" value="Submit" class="w-full flex justify-center items-center px-4 py-2 border border-teal-500 border-2 shadow-sm text-sm font-medium rounded-md text-teal-600 bg-white hover:bg-gray-50 cursor-pointer">
+        </form>
+      </div>
+      {{/if}}
       {{#each signatures}}
         {{> wedding-guestbook}}
       {{/each}}
-      {{#if guest.normal}}<button>Sign the Guestbook</button>{{/if}}
     </ul>
   </div>
   <div class="mt-6">
     <a href="/wedding/{{wedding.id}}"
-      class="w-full flex justify-center items-center px-4 py-2 border border-teal-500 border-2 shadow-sm text-sm font-medium rounded-md text-teal-600 bg-white hover:bg-gray-50">Back
+      id="return" class="w-full flex justify-center items-center px-4 py-2 border border-teal-500 border-2 shadow-sm text-sm font-medium rounded-md text-teal-600 bg-white hover:bg-gray-50">Back
       to Wedding</a>
   </div>
 </div>
+{{#if guest.admin}}<script src="/javascript/signatureManager.js"></script>{{/if}}
+{{#if guest.normal}}<script src="/javascript/signatureSigner.js"></script>{{/if}}
 
 {{/unless}}
