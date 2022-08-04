@@ -1,4 +1,4 @@
-const { Guest } = require('../models/index');
+const { Guest } = require('../models/');
 const guestData = [
     {
         wedding_id: 1,

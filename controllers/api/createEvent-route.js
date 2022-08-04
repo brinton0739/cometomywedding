@@ -1,13 +1,9 @@
-const router = require("express").Router()
-const Event = require("../../models/Event")
-const Guest = require("../../models/Guest")
+const router = require("express").Router();
+const { Event, Guest } = require('../../models');
 
 router.post("/", async (req, res) => {
 
     const admin = 0;
-
-    console.log(req.session);
-
     let weddingId;
     if (req.body.wedding_id) {
           weddingId = req.body.wedding_id;
@@ -27,17 +23,12 @@ router.post("/", async (req, res) => {
         address: req.body.address,
         dress_code: req.body.dress_code,
         wedding_id: weddingId,
-      })
-      req.session.save(() => {
-        req.session.guest_id = dbEventData.guest_id,
-        res.status(200).json(dbEventData)
-      })
+      });
       res.status(200).json(dbEventData)
     } catch (err) {
       console.log(err)
       res.status(500).json(err)
-    }
+    };
   }),
-
 
 module.exports = router

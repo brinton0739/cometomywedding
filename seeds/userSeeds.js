@@ -1,4 +1,4 @@
-const { User } = require('../models/index');
+const { User } = require('../models/');
 // password is the hash for "password1"
 const userData = [
     {

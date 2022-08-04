@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Signature extends Model {}
+class Signature extends Model { };
 
 Signature.init(
   {
@@ -12,8 +12,8 @@ Signature.init(
       autoIncrement: true,
     },
     body: {
-        type: DataTypes.STRING,
-        allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     wedding_id: {
       type: DataTypes.INTEGER,

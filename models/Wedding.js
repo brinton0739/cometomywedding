@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Wedding extends Model {}
+class Wedding extends Model { };
 
 Wedding.init(
   {
@@ -27,6 +27,10 @@ Wedding.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    registry: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   },
   {
     sequelize,

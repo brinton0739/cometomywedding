@@ -10,8 +10,8 @@ async function convertAccess(guest) {
     }
     default: {
       guest.restricted = 1;
-    }
-  }
-}
+    };
+  };
+};
   
 module.exports = convertAccess;
