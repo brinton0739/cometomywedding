@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
         date: new Date(),
         guest_id: 1,
         // wedding_id: req.params.wedding_id
-        guest_id:1
+        wedding_id:1
         // wedding_id:req.session.wedding_id
       })
       res.status(200).json(dbPhotoData)

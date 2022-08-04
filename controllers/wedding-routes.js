@@ -46,54 +46,27 @@ router.get("/:wedding_id/guestbook", auth, async (req, res) => {
 //     })
 //   })
 
-// router.get("/:wedding_id/album", auth, async (req, res) => {
-//   res.render("weddingAlbum")
-// })
-router.get("/:wedding_id/album", async (req, res) => {
+
+router.get("/:wedding_id/album",  async (req, res) => {
   try {
-    const userPhoto = await Photos.findAll({})
-    console.log("user get")
-    return res.json(userPhoto)
+    const photoData = await Photos.findAll().catch((err) => {
+      res.json(err)
+    })
+    // const userPhotos = photoData.filter(
+    //   (photo) => photo.guest_id === req.session.guest_id
+    // )
+    const photos = photoData.map((photo) => photo.get({ plain: true }))
+    // const photos = userPhotos.map((photo) => photo.get({ plain: true }))
+console.log(photos)
+    res.render("weddingAlbum", {
+      photos,
+      loggedIn: req.session.loggedIn,
+    })
   } catch (err) {
-    res.json(err)
+    console.log(err)
   }
 })
 
-  // router.get("/:wedding_id/album", auth, async (req, res) => {
-  //   // try {
-  //     // const signatures = await getSignatures(req.params.wedding_id);
-  //     // const wedding = await getWedding(req.params.wedding_id);
-
-  //       const photoData = await Wedding.findByPk(req.params.wedding_id, {
-  //         include: [
-  //           {
-  //             model: Photos,
-  //             as: "photos",
-  //           },
-  //         ],
-  //       })
-    
-  //     // .catch((err) => {
-  //     //   res.json(err)
-  //     // })
-  //    if(photoData) {
-  //     const photos = photoData.map((photo) => photo.get({ plain: true }))
-
-  //     console.log(photos)
-  //     res.render("weddingAlbum", {
-  //       wedding,
-  //       // signatures,
-  //       photos,
-  //       loggedIn: req.session.loggedIn,
-  //     })
-  //   }
-  //   else {
-  //     res.render('weddingAlbum')
-  //   }
-  //   // } catch (err) {
-  //   //   console.log(err)
-  //   // }
-  // })
 
 
   router.get("/1/guestbook", withAuth, async (req, res) => {

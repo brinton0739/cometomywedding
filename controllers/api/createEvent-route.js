@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
       })
       req.session.save(() => {
         req.session.guest_id = dbEventData.guest_id,
-        res.status(200).json(dbWeddingData)
+        res.status(200).json(dbEventData)
       })
       res.status(200).json(dbEventData)
     } catch (err) {
