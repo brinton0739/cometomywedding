@@ -26,6 +26,7 @@ router.get("/:wedding_id", auth, async (req, res) => {
       loggedIn: req.session.loggedIn,
       guest, wedding, events
     });
+     
   } catch (err) {
     res.render("404");
   };
