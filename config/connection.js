@@ -11,5 +11,5 @@ const sequelize = (process.env.JAWSDB_URL!=(null || undefined)) ? new Sequelize(
     port: 3306,
   }
 );
-
+asdffasdf
 module.exports = sequelize;
