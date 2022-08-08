@@ -1,3 +1,4 @@
+/** HANDLES EDITING THE EVENT */
 // get all the buttons
 // const deleteButtons = [...document.querySelectorAll('.delete')];
 // const editButtons = [...document.querySelectorAll('.edit')];

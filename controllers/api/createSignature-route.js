@@ -1,3 +1,4 @@
+//API route so user can sign the guest book. Post to signature table
 const router = require("express").Router();
 const { Signature } = require("../../models");
 const getGuest = require('../../utils/getGuest');

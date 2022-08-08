@@ -1,3 +1,4 @@
+//handles inputing RSVP code on RSVP page
 const rsvp = async () => {
     const code = document.getElementById('code-input').value;
     if (code == '') {

@@ -1,3 +1,5 @@
+//API route to login and logout users
+
 const router = require("express").Router();
 const { User } = require("../../models");
 
@@ -25,6 +27,7 @@ router.post("/login", async (req, res) => {
       return
     }
     console.log(req.session.loggedIn)
+
     //save cookies for session after login
     req.session.save(() => {
       req.session.loggedIn = true,

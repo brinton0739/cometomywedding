@@ -1,3 +1,4 @@
+/** helper to get signature id */
 const { User, Guest, Signature } = require('../models/');
 
 async function getSignatures(wed) {

@@ -1,3 +1,4 @@
+/** helper to get wedding id */
 const { Wedding } = require('../models/');
 
 async function getWedding(wed) {

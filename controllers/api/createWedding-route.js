@@ -1,9 +1,12 @@
+//API for user to create a wedding. Post to wedding table
+
 const router = require("express").Router();
 const { Wedding, Guest } = require("../../models");
 const generateWeddingCode = require("../../utils/uuid.js");
 
 router.post("/", async (req, res) => {
     try {
+    
       const code = await generateWeddingCode();
       const dbWeddingData = await Wedding.create({
         partner1: req.body.partner1,

@@ -4,6 +4,7 @@ const submitSignature = document.getElementById('submitSignature');
 const weddingReturn = document.getElementById('return');
 const signButton = document.getElementById('sign');
 
+//handles guest signing guestbook
 async function addSignature() {
     const signatureValue = signatureTextBox.value;
     const weddingUrl = weddingReturn.href.split('/');

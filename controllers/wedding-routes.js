@@ -8,6 +8,8 @@ const getSignatures = require('../utils/getSignatures');
 const auth = require('../utils/auth');
 const convertAccess = require('../utils/convertAccess');
 
+//get the wedding route for the wedding authorized to view
+
 router.get("/:wedding_id", auth, async (req, res) => {
   try {
     const guest = await getGuest(req.params.wedding_id, req.session.user_id);
@@ -32,6 +34,7 @@ router.get("/:wedding_id", auth, async (req, res) => {
   };
 });
 
+//route to guestbook with authorization
 router.get("/:wedding_id/guestbook", auth, async (req, res) => {
   const guest = await getGuest(req.params.wedding_id, req.session.user_id);
   const signatures = await getSignatures(req.params.wedding_id);
@@ -46,6 +49,7 @@ router.get("/:wedding_id/guestbook", auth, async (req, res) => {
   });
 });
 
+//route to wedding album
 router.get("/:wedding_id/album", async (req, res) => {
   try {
     const wedding = await getWedding(req.params.wedding_id);
@@ -68,6 +72,9 @@ router.get("/:wedding_id/album", async (req, res) => {
   };
 });
 
+
+//this never made the app, for future
+
 router.get("/registry", (req, res) => {
   try {
     res.render("registry", {
@@ -80,7 +87,7 @@ router.get("/registry", (req, res) => {
 });
 
 
-
+//route to guest list
 router.get("/:wedding_id/guestlist", withAuth, async (req, res) => {
   try {
     const access = await getGuest(req.params.wedding_id, req.session.user_id);

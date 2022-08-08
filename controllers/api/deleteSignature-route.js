@@ -1,3 +1,5 @@
+//allow user to delete a signature from the guest book
+
 const router = require("express").Router();
 const { Signature } = require('../../models');
 

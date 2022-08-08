@@ -1,3 +1,4 @@
+/** helper to users multiple wedding id's */
 const { Guest, Wedding } = require('../models/');
 
 async function getMultipleWeddings(user) {
