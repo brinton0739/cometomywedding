@@ -1,6 +1,7 @@
 const guestLis = document.querySelectorAll('.guest');
 const deleteButtons = [...document.querySelectorAll('.delete')];
 
+//handles deleting guest off guest list
 async function deleteguest(event) {
     if (confirm('Uninvite this guest?')) {
         try {

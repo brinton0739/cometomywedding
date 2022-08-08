@@ -1,3 +1,4 @@
+/** helper to check if user is creator of wedding */
 async function convertAccess(guest) {
   switch(guest.access) {
     case 0: {

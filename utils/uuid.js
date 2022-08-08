@@ -1,3 +1,4 @@
+/** helper to create a a unique code for RSVP */
 const uuid = require('uuid');
 const { Wedding }= require('../models/')
 

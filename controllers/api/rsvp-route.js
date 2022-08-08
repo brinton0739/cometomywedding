@@ -3,7 +3,7 @@ const { Wedding, Guest } = require("../../models/");
 const getGuest = require('../../utils/getGuest');
 const withAuth = require('../../utils/auth');
 
-// get wedding using RSVP code
+// get wedding using RSVP code. Creates guest and posts to guest table
 router.post("/:rsvp", withAuth, async (req, res) => {
     try {
         const weddingData = await Wedding.findOne({

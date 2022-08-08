@@ -1,3 +1,4 @@
+/** helper to get guest id */
 const { Guest } = require('../models/');
 
 async function getGuest(wed, user) {

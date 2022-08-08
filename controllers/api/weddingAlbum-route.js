@@ -1,3 +1,4 @@
+// Post to photo data Photos table for wedding album. 
 const router = require("express").Router();
 const { Photos } = require("../../models");
 const getGuest = require('../../utils/getGuest');

@@ -1,6 +1,7 @@
 const signatureLis = document.querySelectorAll('.signature');
 const deleteButtons = [...document.querySelectorAll('.delete')];
 
+// handles wedding creator deleting signatures from guestbook
 async function deleteSignature(event) {
     if (confirm('Delete this signature?')) {
         try {

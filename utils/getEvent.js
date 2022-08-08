@@ -1,3 +1,4 @@
+/** helper to get event id */
 const { Event } = require('../models/');
 
 async function getEvents(wed) {

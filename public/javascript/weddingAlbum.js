@@ -2,6 +2,8 @@ const imageform = document.querySelector('#imageForm');
 const imageInput = document.querySelector('#imageInput');
 const wedding_id = imageform.dataset.wedding_id;
 
+//handle photos being uploaded directly to AWS s3 bucket
+
 imageform.addEventListener("submit", async event => {
   event.preventDefault();
   const file = imageInput.files[0];
@@ -36,6 +38,7 @@ imageform.addEventListener("submit", async event => {
     };
   };
 
+  //shows instant upload to the page, handlebars will persist the photos from the database.
   let photoHTML = `
   <div class= "relative aspect-square w-64 rounded-md p-2">
   <img src= "${image_url}" class="object-cover rounded-md">

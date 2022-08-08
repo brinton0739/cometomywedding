@@ -6,7 +6,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
-// const helpers = require('./utils/helpers');
+
 const { s3, generateUploadURL } = require('./config/s3js');
 
 require('dotenv');
@@ -39,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+//create url for images uploaded to AWS
 app.get('/s3Url', async (req, res) => {
   const url = await generateUploadURL();
   res.send({ url });
