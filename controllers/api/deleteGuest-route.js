@@ -1,3 +1,5 @@
+// user can delete guest from their guest list.
+
 const router = require("express").Router();
 const { Guest } = require('../../models');
 

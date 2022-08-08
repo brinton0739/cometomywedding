@@ -1,3 +1,5 @@
+//User can create an event. Post to event table
+
 const router = require("express").Router();
 const { Event, Guest } = require('../../models');
 
@@ -10,7 +12,8 @@ router.post("/", async (req, res) => {
         } else {
           weddingId = req.session.wedding_id;
         }
-    const authorize = await Guest.findOne({ where: {user_id: req.session.user_id, wedding_id: weddingId}})
+//make sure user is a creator of a wedding the post to event table   
+     const authorize = await Guest.findOne({ where: {user_id: req.session.user_id, wedding_id: weddingId}})
     if (authorize == null || authorize.access !== admin) {
       return res.status(401).end();
     }

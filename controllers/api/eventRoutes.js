@@ -1,3 +1,5 @@
+//allows users to update date and delete their events.
+
 const router = require("express").Router();
 const { Event } = require("../../models/");
 
